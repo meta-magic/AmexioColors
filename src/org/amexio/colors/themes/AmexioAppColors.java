@@ -1,0 +1,93 @@
+/**
+ * Copyright (c) 2018 Araf Karsh Hamid
+
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+
+ * This program and the accompanying materials are dual-licensed under
+ * either the terms of the Eclipse Public License v1.0 as published by
+ * the Eclipse Foundation
+ 
+ *   or (per the licensee's choosing)
+ 
+ * under the terms of the Apache 2 License version 2.0
+ * as published by the Apache Software Foundation.
+*/
+package org.amexio.colors.themes;
+
+import org.amexio.colors.core.Color;
+
+/**
+ * Theme Builder will automatically determines the Font Colors and 
+ * Background Colors for various component properties like 
+ * 
+ * 01. App Bacground Color
+ * 02. App Foreground Color
+ * 03. App Header Background Color
+ * 04. App Header Foreground Color
+ * 05. App Header Hover Color
+ * 06. App Header Hover Foreground Color
+ * 
+ * @author Araf Karsh Hamid
+ * @version 1.0
+ * @date February 25, 2018
+ */
+public final class AmexioAppColors {
+	
+	public static final String NL = System.getProperty("line.separator");
+	
+	// App Variables
+	private final Color appBackgroundColor;
+	private final Color appForegroundColor;
+	private final Color appHeaderBackgroundColor;
+	private final Color appHeaderForegroundColor;
+	private final Color appHeaderHoverBackgroundColor;
+	private final Color appHeaderHoverForegroundColor;
+	
+	/**
+	 * App Colors
+	 * 
+	 * @param Color _bgColor
+	 * @param Color _headerBGColor
+	 */
+	public AmexioAppColors(Color _bgColor, Color _headerBGColor) {
+		appBackgroundColor 				= _bgColor;
+		appForegroundColor				= _bgColor.foregroundColor();
+		appHeaderBackgroundColor			= _headerBGColor;
+		appHeaderForegroundColor			= _headerBGColor.foregroundColor();
+		appHeaderHoverBackgroundColor 	= _bgColor.lighter(30);
+		appHeaderHoverForegroundColor	= appHeaderForegroundColor.darker(10);
+	}
+	
+	/**
+	 * Prints the SCSS for App Vars
+	 * 
+	 * @return String
+	 */
+	public String printSCSS() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("/** App Color Variables ------------------------ */").append(NL);
+		sb.append("$appBackground :").append(appBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("$appForegroundColor :").append(appForegroundColor.hexStr()).append(";").append(NL); 
+		
+		sb.append("$appHeaderBGColor :").append(appHeaderBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("$appHeaderFontColor :").append(appHeaderForegroundColor.hexStr()).append(";").append(NL);
+
+		sb.append("$appHeaderHoverBGColor :").append(appHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("$appHeaderHoverFontColor :").append(appHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
+		sb.append(NL);
+		return sb.toString();
+	}
+}
