@@ -1,5 +1,17 @@
-# Amexio Colors
 
+<img src="https://image.ibb.co/cZS6ax/Amexio_Colors_Logo_FF.jpg" alt="Amexio Colors" align="center">
+
+<h1 align="center">
+# Amexio Colors API v1.0
+</h1>
+
+## Understanding various Color formats
+
+ RGB  = Red Green Blue<br>
+ HSL  = Hue Saturation Lightness<br>
+ HWB  = Hue Whiteness Blackness<br>
+ CMYK = Cyan Magenta Yellow Black<br>
+ 
  A Color profile establishes the boundaries of the RGB or CMYK gamut, without a
  color profile, the numbers expressed as RGB or CMYK has no meaning. While RGB is
  mainly used for electronic displays CMYK is used for print medium.
@@ -13,11 +25,10 @@
  RGB and CMYK are "device dependent", meaning that you can get different colors 
  with the same set of numbers.
   
- RGB  = Red Green Blue<br>
- HSL  = Hue Saturation Lightness<br>
- HWB  = Hue Whiteness Blackness<br>
- CMYK = Cyan Magenta Yellow Black<br>
-  
+ ## How we arrived at building this API
+ 
+ <img src="https://image.ibb.co/dmrJNc/Amexio_Color_Stats.jpg" alt="Amexio Color History" align="center">
+ 
  ## Color is the Magical Object in Amexio Color API
  
  Color is an immutable object with RGB with Alpha, HSL, RGB Normalized Values 
