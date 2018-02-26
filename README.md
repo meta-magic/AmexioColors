@@ -1,6 +1,5 @@
 # Amexio Colors
 
-  
  A Color profile establishes the boundaries of the RGB or CMYK gamut, without a
  color profile, the numbers expressed as RGB or CMYK has no meaning. While RGB is
  mainly used for electronic displays CMYK is used for print medium.
@@ -14,10 +13,10 @@
  RGB and CMYK are "device dependent", meaning that you can get different colors 
  with the same set of numbers.
   
- RGB  = Red Green Blue
- HSL  = Hue Saturation Lightness
- HWB  = Hue Whiteness Blackness
- CMYK = Cyan Magenta Yellow Black
+ RGB  = Red Green Blue<br>
+ HSL  = Hue Saturation Lightness<br>
+ HWB  = Hue Whiteness Blackness<br>
+ CMYK = Cyan Magenta Yellow Black<br>
   
  ## Color is the Magical Object in Amexio Color API
  
@@ -33,7 +32,7 @@
  
  * HSL to RGB
   
- ### Functions available in Color
+ ### Functions available in Color API
  
  * Pure Color of the Current Color (Saturation = 100, Lightness = 51)
  * Gray Tone of the Current Color (Saturation = 25, Lightness = 81)
@@ -42,11 +41,51 @@
  * Darken the Current Color
  * Lighten the Current Color
  
- ## Amexio Theme Builder
+ ## Amexio Theme Builder API
+ 
  Theme Builder uses the the above mentioned functions to understand the color patterns and 
  automatically derive the color patterns and color combinations for the Primary Color 
  given as an input to the Theme Builder. 
  
+ ## Amexio Color Factory API
  
+ Color Factory API will focus on creating Color combinations based on the following Color Patterns
  
+ ### Color Duo
+ 
+ Colors that are directly opposite one another on the color wheel are known as complementary colors. 
+ Complementary colors have a high contrast and can be very effective as accent colors when paired with 
+ a more neutral palette.
+ 
+ ### Triadic Colors
+  
+ Triadic harmonies consist of three colors equidistant from one another on the color wheel. Like 
+ complementary colors, triadic schemes tend to be very bright with a high contrast and work best 
+ when one color dominates.
+ 
+ ### Tetradic Colors
+ 
+ Tetradic color harmonies are formed by two sets of complementary colors 60 degrees apart on the 
+ color wheel. Tetradic schemes are an excellent starting point for creating color palettes; fine 
+ tune them using color shades, tints and tones.
+ 
+ ###  Analogus Colors
+ 
+ Analogous harmonies are created by selecting the colors directly adjacent to a chosen color. 
+ Frequently found in web design, analogous schemes, when paired with a complementary color for 
+ contrast, can offer great versatility.
+ 
+ ### Neutral Colors
+ 
+ Neutral schemes, like analogous harmonies, are formed by taking the colors on either side of 
+ a chosen color but at half the distance. While analogous schemes typically use colors 30 degrees 
+ apart, neutral harmonies use colors 15 degrees apart.
+ 
+ ## License
+
+Copyright © [MetaMagic Global Inc](http://www.metamagicglobal.com/), 2017-18. [Amexio Angular EXtensions](http://www.amexio.tech). All rights reserved.
+
+Licensed under the [Apache 2.0](http://www.amexio.org/metamagic-showcase/license.html)  License.
+
+**Enjoy!**
  
