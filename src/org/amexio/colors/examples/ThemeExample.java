@@ -33,6 +33,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.amexio.colors.core.Color;
 import org.amexio.colors.themes.AmexioThemeBuilder;
 
 public class ThemeExample {
@@ -40,10 +41,13 @@ public class ThemeExample {
 	public static void main(String[] args) throws IOException {
 		
 		
+		// Theme Light Blue
+		AmexioThemeBuilder builder = new AmexioThemeBuilder(
+		 		new Color("#4ddfe8"), new Color("#81D4F9"));
 		// AmexioThemeBuilder builder = new AmexioThemeBuilder();
-		// System.out.println(builder.printSCSS());
+		System.out.println(builder.printSCSS());
 		
-		speedTest(10000);
+		// speedTest(10000);
 		
 	}
 	

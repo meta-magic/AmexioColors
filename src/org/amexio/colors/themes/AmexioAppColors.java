@@ -80,6 +80,8 @@ public final class AmexioAppColors {
 		StringBuilder sb = new StringBuilder();
 		sb.append("/** App Color Variables ------------------------ */").append(NL);
 		sb.append("$appBackground :").append(appBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("$appBackgroundImage : none;").append(NL);
+
 		sb.append("$appForegroundColor :").append(appForegroundColor.hexStr()).append(";").append(NL); 
 		
 		sb.append("$appHeaderBGColor :").append(appHeaderBackgroundColor.hexStr()).append(";").append(NL);

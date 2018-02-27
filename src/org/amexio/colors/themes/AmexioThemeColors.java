@@ -298,8 +298,8 @@ public class AmexioThemeColors {
 		theme1stColor 	= (_color1 != null) ? _color1 : Colors.BROWN.MAROON;
 		theme2ndColor 	= (_color2 != null) ? _color2 : Colors.RED.FIREBRICK;
 
-		theme3rdColor 	= (_color3 != null) ? _color3 : Colors.WHITE.WHITESMOKE;
-		theme4thColor 	= (_color4 != null) ? _color4 : Colors.WHITE.SNOW;
+		theme3rdColor 	= (_color3 != null) ? _color3 : Colors.ORANGE.CORAL;
+		theme4thColor 	= (_color4 != null) ? _color4 : Colors.GREEN.MEDIUMSPRINGGREEN;
 		
 		theme5thColor 	= (_color5 != null) ? _color5 : Colors.WHITE.WHITESMOKE;
 		theme6thColor 	= (_color6 != null) ? _color6 : Colors.WHITE.SNOW;

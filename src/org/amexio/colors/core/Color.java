@@ -54,7 +54,7 @@ import java.text.DecimalFormat;
  * Color is an immutable object with RGB with Alpha, HSL, RGB Normalized Values 
  * (to be used in Machine Learning), Hex Values and Color Channel identification. 
  * 
- * It also has the following Conversion Alogrithms.
+ * It also has the following Conversion Algorithms.
  * 
  * RGB to HSL
  * RGB to HWB
@@ -153,7 +153,18 @@ public final class Color {
 	 * @param String _hexValue
 	 */
 	public Color(String _hexValue) {
-		this((int)Long.parseLong(_hexValue, 16));
+		this(checkHexValue(_hexValue));
+	}
+	
+	/**
+	 * Validate the String input for Hex Value
+	 * @param _hexValue
+	 * @return int
+	 */
+	private static int checkHexValue(String _hexValue) {
+		if(_hexValue == null) return 0;
+		if(_hexValue.startsWith("#")) return (int)Long.parseLong(_hexValue.replace("#", ""), 16);
+		return (int)Long.parseLong(_hexValue, 16);
 	}
 	
 	/**
@@ -224,10 +235,10 @@ public final class Color {
 	public Color(int _r, int _g, int _b, float _a, String _name) {
 		
 		// RGB with Alpha for transparency
-		red 			= (_r <0) ? 228 : _r;
-		green 		= (_g <0) ? 237 : _g;
-		blue 		= (_b <0) ? 130 : _b;
-		alpha 		= (_a <0) ? 0   : _a;
+		red 			= (_r <0 || _r>255) ? 228 : _r;
+		green 		= (_g <0 || _g>255) ? 237 : _g;
+		blue 		= (_b <0 || _b>255) ? 130 : _b;
+		alpha 		= (_a <0 || _r>1) ? 0   : _a;
 		
 		// RGB Integer Value
 		rgb 			= 65536 * red + 256 * green + blue;
@@ -277,7 +288,9 @@ public final class Color {
 		switch(hex.length()) {
 			case(1) : return "00000" + hex;
 			case(2) : return "0000" + hex;
+			case(3) : return "000" + hex;
 			case(4) : return "00" + hex;
+			case(5) : return "0" + hex;
 			default:
 				return hex;
 		}

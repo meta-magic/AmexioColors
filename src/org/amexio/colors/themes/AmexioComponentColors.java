@@ -64,6 +64,9 @@ public final class AmexioComponentColors {
 	private final Color componentFooterBackgroundColor;
 	private final Color componentFooterForegroundColor;
 	
+	private final Color componentDataBackgroundColor;
+	private final Color componentDataForegroundColor;
+	
 	// Component State Colors
 	private final Color componentHeaderHoverBackgroundColor;
 	private final Color componentHeaderHoverForegroundColor;
@@ -87,15 +90,21 @@ public final class AmexioComponentColors {
 		componentFooterBackgroundColor			= _headerBGColor.foregroundColor();
 		componentFooterForegroundColor			= _headerBGColor;
 		
-		// Component State Change Colors
-		componentHeaderHoverBackgroundColor 		= _headerBGColor.lighter(60);
-		componentHeaderHoverForegroundColor		= _headerBGColor.darker(10);
-		
+		// Get the Pure Colors for Color Variations
 		Color pureBGColor 						= _headerBGColor.pureColor();
 		Color grayTone							= _headerBGColor.grayTone();
 		
-		componentActiveBackgroundColor			= pureBGColor.lighter(30);
-		componentActiveForegroundColor			= pureBGColor.darker(40);
+		// Component Data Colors
+		componentDataBackgroundColor				= pureBGColor.darker(45);
+		componentDataForegroundColor				= pureBGColor.lighter(30);
+		
+		// Component State Change Colors
+		componentHeaderHoverBackgroundColor 		= pureBGColor.lighter(35);
+		componentHeaderHoverForegroundColor		= pureBGColor.darker(35);
+		
+		componentActiveBackgroundColor			= pureBGColor.lighter(20);
+		componentActiveForegroundColor			= pureBGColor.darker(45);
+		
 		componentDisabledBackgroundColor			= grayTone;
 		componentDisbaledForegroundColor			= grayTone.darker(30);
 	}
@@ -116,8 +125,11 @@ public final class AmexioComponentColors {
 		sb.append("$componentFooterBGColor :").append(componentFooterBackgroundColor.hexStr()).append(";").append(NL);
 		sb.append("$componentFooterFontColor :").append(componentFooterForegroundColor.hexStr()).append(";").append(NL);
 		
-		sb.append("$componentHeaderHoverBGColor :").append(componentHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentHeaderHoverFontColor :").append(componentHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("$componentDataBGColor :").append(componentDataBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("$componentDataFontColor :").append(componentDataForegroundColor.hexStr()).append(";").append(NL);
+		
+		sb.append("$componentHoverBGColor :").append(componentHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("$componentHoverFontColor :").append(componentHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
 		
 		sb.append("$componentActiveBGColor :").append(componentActiveBackgroundColor.hexStr()).append(";").append(NL);
 		sb.append("$componentActiveFontColor :").append(componentActiveForegroundColor.hexStr()).append(";").append(NL);

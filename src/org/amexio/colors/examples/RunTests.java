@@ -48,6 +48,13 @@ public class RunTests {
 		// print(new Color(24,98,118)); // 192,66,27 - HSL
 		// print(new Color("008080")); // 180,100,25 - HSL
 		
+		// Testing Hex Value
+		
+		System.out.println("Testing the Hex Value in Color Object");
+		foreground(new Color(40,14,11)); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
+		foreground(new Color("#280e0b")); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
+		
+		/**
 		System.out.println("Test=1 | Foreground Color ..");
 		foreground(new Color(40,14,11)); // #280e0b - HSL = 6,56,10
 
@@ -66,6 +73,8 @@ public class RunTests {
 		c = new Color(122,40,31);
 		print(c);
 		print(c.lighter(50));
+		
+		*/
 		
 		// Color c2 = Colors.RED.DARKRED;
 		

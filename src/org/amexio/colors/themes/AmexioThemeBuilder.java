@@ -60,12 +60,7 @@ public final class AmexioThemeBuilder {
 	 */
 	
 	public AmexioThemeBuilder() {
-		themeColor 	= new AmexioThemeColors();
-		appColor 	= new AmexioAppColors(themeColor.theme3rdColor, 
-										themeColor.theme1stColor);
-		compColor	= new AmexioComponentColors(themeColor.theme4thColor,
-										themeColor.theme2ndColor);
-		
+		this(null, null, null, null, null, null, null);	
 	}
 
 	/**
@@ -127,7 +122,7 @@ public final class AmexioThemeBuilder {
 	public String printSCSS() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(AmexioLicense.copyright);
-		sb.append("$isAmexio: false;").append(NL);
+		// sb.append("$isAmexio: false;").append(NL);
 		sb.append("$appTransparency : rgba(0,0,0,0.87);").append(NL);
 		sb.append(themeColor.printSCSS());
 		sb.append(appColor.printSCSS());
