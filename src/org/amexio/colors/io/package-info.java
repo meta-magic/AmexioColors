@@ -5,4 +5,4 @@
  * @author arafkarsh
  *
  */
-package org.amexio.colors.examples;
+package org.amexio.colors.io;

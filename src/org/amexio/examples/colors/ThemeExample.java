@@ -25,7 +25,7 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
 */
-package org.amexio.colors.examples;
+package org.amexio.examples.colors;
 
 import java.io.BufferedWriter;
 import java.io.File;

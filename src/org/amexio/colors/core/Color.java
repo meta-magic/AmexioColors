@@ -614,9 +614,9 @@ public final class Color {
 	 */
 	public Color reverse() {
 		if(light <45) {
-			return hsl2rgb(this.hue, this.sat, 91, this.alpha);
+			return hsl2rgb(this.hue, this.sat, 97, this.alpha);
 		} else {
-			return hsl2rgb(this.hue, this.sat, 11, this.alpha);
+			return hsl2rgb(this.hue, this.sat, 7, this.alpha);
 		}
 	}
 	

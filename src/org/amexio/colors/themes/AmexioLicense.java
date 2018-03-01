@@ -29,7 +29,7 @@ package org.amexio.colors.themes;
 
 public final class AmexioLicense {
 	
-	public static final String NL = System.getProperty("line.separator");
+	private static final String NL = System.getProperty("line.separator");
 	
 	public static final String copyright = "/** " + NL
 		+"  Copyright (c) 2018 MetaMagic Global Inc, NJ, USA " + NL

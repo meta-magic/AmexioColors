@@ -5,4 +5,4 @@
  * @author arafkarsh
  *
  */
-package org.amexio.colors.main;
+package org.amexio.colors.start;

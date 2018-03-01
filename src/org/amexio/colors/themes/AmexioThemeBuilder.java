@@ -28,6 +28,7 @@
 package org.amexio.colors.themes;
 
 import org.amexio.colors.core.Color;
+import org.amexio.colors.io.ThemeConfig;
 
 /**
  * Amexio Theme Builder
@@ -63,6 +64,23 @@ public final class AmexioThemeBuilder {
 		this(null, null, null, null, null, null, null);	
 	}
 
+	public AmexioThemeBuilder(ThemeConfig _theme) {
+		this(
+			new Color(t(_theme).getColor1()), new Color(t(_theme).getColor2()), 
+			new Color(t(_theme).getColor3()), new Color(t(_theme).getColor4()), 
+			new Color(t(_theme).getColor5()), new Color(t(_theme).getColor6()), null
+		);
+	}
+	
+	/**
+	 * Check if the ThemeConfig is NULL or NOT
+	 * @param _t
+	 * @return
+	 */
+	private static ThemeConfig t(ThemeConfig _t) {
+		return (_t == null) ? new ThemeConfig() : _t;
+	}
+	
 	/**
 	 * Theme with a Single Color Pallette
 	 * 
