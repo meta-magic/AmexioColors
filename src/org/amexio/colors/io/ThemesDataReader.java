@@ -61,7 +61,10 @@ public final class ThemesDataReader {
 	private final String destinationPath;
 	private final boolean fileStatus;
 	private final ArrayList<ThemeConfig> themes;
+	
 	private File dataFile;
+	private boolean materialDesign = true;
+	private double version = 3.0;
 	
 	/**
 	 * Set the Input Data File Name
@@ -94,16 +97,20 @@ public final class ThemesDataReader {
 			return false;
 		}
 		BufferedReader dFile;
+		// Open the Theme Input File
 		try {
 			dFile = new BufferedReader(new FileReader(dataFile));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return false;
 		}
+		// Read Theme Input File Line by Line
 		try {
 			while(dFile.ready()) {
+				// Process each row of the Input File
 				ThemeConfig tc = processRow(dFile.readLine());
 				if(tc != null) {
+					// Add Themes to a Global Array
 					themes.add(tc);
 				}
 			}
@@ -124,28 +131,34 @@ public final class ThemesDataReader {
 	
 	private ThemeConfig processRow(String _row) {
 		if(_row != null && _row.length() >0) {
-			boolean materialDesign = true;
-			double version = 3.0;
 			if(!_row.startsWith("//")) {
 				String[] fields = _row.split(",");
 				if(fields != null) {
 					switch(fields.length) {
 					case 2:
-						return new ThemeConfig(fields[0], fields[1]);
+						return new ThemeConfig(fields[0], fields[1])
+								.setVersion(version)
+								.setDesignType(materialDesign);
 					case 3:
-						return new ThemeConfig(fields[0], fields[1], fields[2]);
+						return new ThemeConfig(fields[0], fields[1], fields[2])
+								.setVersion(version)
+								.setDesignType(materialDesign);
 					case 4:
 						return new ThemeConfig(fields[0], fields[1], 
-								fields[2], fields[3], null);
+								fields[2], fields[3], null)
+								.setVersion(version)
+								.setDesignType(materialDesign);
 					case 5:
 						return new ThemeConfig(fields[0], fields[1], 
-								fields[2], fields[3], fields[4]);
+								fields[2], fields[3], fields[4])
+								.setVersion(version)
+								.setDesignType(materialDesign);
 					}
 				}
-			} else {
+			} else if(_row.startsWith("// Design-Type")) {
 				materialDesign = getDesignType(_row.split(":"));
+			} else if(_row.startsWith("// Theme-Version")) {
 				version = getVersion(_row.split(":"));
-				
 			}
 		}
 		return null;
@@ -158,7 +171,7 @@ public final class ThemesDataReader {
 	 */
 	private boolean  getDesignType(String[] _data) {
 		if(_data != null && _data.length >1) {
-			if(_data[1].equalsIgnoreCase("Material Design")) {
+			if(_data[1].trim().equalsIgnoreCase("Material Design")) {
 				return true;
 			}
 		}
@@ -172,8 +185,9 @@ public final class ThemesDataReader {
 	 */
 	private double getVersion(String[] _data) {
 		if(_data != null && _data.length >1) {
+			System.out.print("Version : "+_data[1]);
 			try {
-				return Double.parseDouble(_data[1]);
+				return Double.parseDouble(_data[1].trim());
 			} catch (Exception ignored) {}
 		}
 		return 3.2;
@@ -194,8 +208,8 @@ public final class ThemesDataReader {
 	 */
 	public static void main(String[] args) {
 		
-		String dest		= "/Users/arafkarsh/AmexioColors/mda-new/";
-		String dataFile = "Themes-Data.txt";
+		String dest		= "/Users/arafkarsh/AmexioColors/mda-test/";
+		String dataFile = "Themes-Test.txt";
 		
 		ThemesDataReader data = new ThemesDataReader(dataFile, dest);
 		if(data.processFile()) {

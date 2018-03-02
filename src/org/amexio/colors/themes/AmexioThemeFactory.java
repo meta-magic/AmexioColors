@@ -85,7 +85,7 @@ public class AmexioThemeFactory {
 	public static void main(String[] args) {
 		
 		AmexioThemeFactory factory = new AmexioThemeFactory("Themes-Data.txt",
-										"/Users/arafkarsh/AmexioColors/mda-new/");
+										"/Users/arafkarsh/AmexioColors/mda-new-2/");
 		if(factory.createThemes()) {
 			System.out.println("Theme Generation Process Started...");
 		} else {

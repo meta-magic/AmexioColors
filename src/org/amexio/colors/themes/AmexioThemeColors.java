@@ -95,12 +95,19 @@ public class AmexioThemeColors {
 	public final String themeFontFamily; 
 	
 	// Random Colors to be used within a theme
-	public final Color amexioColor1 = Colors.RED.CRIMSON;
-	public final Color amexioColor2 = Colors.GREEN.LIME;
-	public final Color amexioColor3 = Colors.PURPLE.DARKVIOLET;
-	public final Color amexioColor4 = Colors.BLUE.DODGERBLUE;
-	public final Color amexioColor5 = Colors.BROWN.MAROON;
-	public final Color amexioColor6	= Colors.BLUE.DARKBLUE;
+	public static final Color amexioColor1L = Colors.ORANGE.CORAL;
+	public static final Color amexioColor1D = Colors.RED.DARKRED;
+	public static final Color amexioColor2L = Colors.GREEN.LIME;
+	public static final Color amexioColor2D = Colors.GREEN.SEAGREEN;
+	public static final Color amexioColor3L = Colors.PURPLE.MAGENTA;
+	public static final Color amexioColor3D = Colors.PURPLE.DARKMAGENTA;
+	public static final Color amexioColor4L = Colors.BLUE.DEEPSKYBLUE;
+	public static final Color amexioColor4D = Colors.BLUE.DARKBLUE;
+	public static final Color amexioColor5L = Colors.BROWN.SANDYBROWN;
+	public static final Color amexioColor5D = Colors.BROWN.MAROON;
+	public static final Color amexioColor6L	= Colors.YELLOW.GOLD;
+	public static final Color amexioColor6D	= Colors.RED.FIREBRICK;
+
 	
 	/**
 	 * Creates the Default Theme with Maroon, FireBrick, WhiteSmoke and Snow
@@ -304,7 +311,7 @@ public class AmexioThemeColors {
 		theme5thColor 	= (_color5 != null) ? _color5 : Colors.WHITE.WHITESMOKE;
 		theme6thColor 	= (_color6 != null) ? _color6 : Colors.WHITE.SNOW;
 		
-		themeFontColor	= theme1stColor.pureColor().darker(40);
+		themeFontColor	= theme1stColor.pureColor().darker(45);
 		themeFontFamily	= (_fontFamily != null) ? _fontFamily : "Roboto,Trebuchet MS,Arial,Helvetica,sans-serif";
 	}
 	
@@ -316,7 +323,7 @@ public class AmexioThemeColors {
 	public String printSCSS() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(NL);
-		sb.append("/** Theme Color Variables ------------------------ */").append(NL);
+		sb.append("/** Theme Color Variables ------------------------------- */").append(NL);
 		sb.append("$themePrimaryColor :").append(theme1stColor.hexStr()).append(";").append(NL);
 		sb.append("$themeSecondaryColor :").append(theme2ndColor.hexStr()).append(";").append(NL); 
 		sb.append("$theme3rdColor :").append(theme3rdColor.hexStr()).append(";").append(NL);
@@ -328,6 +335,20 @@ public class AmexioThemeColors {
 		
 		sb.append("$themeFontColor :").append(themeFontColor.hexStr()).append(";").append(NL);
 		sb.append("$themeFontFamily :").append(themeFontFamily).append(";").append(NL);
+		sb.append(NL);
+		sb.append("/** Theme Additional Std Colors : Light and Dark shades --- */").append(NL);
+		sb.append("$amexioColor1L :").append(amexioColor1L.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor1D :").append(amexioColor1D.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor2L :").append(amexioColor2L.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor2D :").append(amexioColor2D.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor3L :").append(amexioColor3L.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor3D :").append(amexioColor3D.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor4L :").append(amexioColor4L.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor4D :").append(amexioColor4D.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor5L :").append(amexioColor5L.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor5D :").append(amexioColor5D.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor6L :").append(amexioColor6L.hexStr()).append(";").append(NL);
+		sb.append("$amexioColor6D :").append(amexioColor6D.hexStr()).append(";").append(NL);
 		sb.append(NL);
 		return sb.toString();
 	}

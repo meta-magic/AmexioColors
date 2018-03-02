@@ -51,8 +51,13 @@ public final class AmexioAppColors {
 	// App Variables
 	private final Color appBackgroundColor;
 	private final Color appForegroundColor;
+	
 	private final Color appHeaderBackgroundColor;
 	private final Color appHeaderForegroundColor;
+	
+	private final Color appHeaderMenuBackgroundColor;
+	private final Color appHeaderMenuFontColor;
+	
 	private final Color appHeaderHoverBackgroundColor;
 	private final Color appHeaderHoverForegroundColor;
 	
@@ -65,10 +70,16 @@ public final class AmexioAppColors {
 	public AmexioAppColors(Color _bgColor, Color _headerBGColor) {
 		appBackgroundColor 				= _bgColor;
 		appForegroundColor				= _bgColor.foregroundColor();
+		
 		appHeaderBackgroundColor			= _headerBGColor;
 		appHeaderForegroundColor			= _headerBGColor.foregroundColor();
-		appHeaderHoverBackgroundColor 	= _bgColor.lighter(30);
-		appHeaderHoverForegroundColor	= appHeaderForegroundColor.darker(10);
+				
+		Color pureColor					= _headerBGColor.pureColor();
+		appHeaderMenuBackgroundColor		= pureColor.darker(25);
+		appHeaderMenuFontColor			= appHeaderMenuBackgroundColor.foregroundColor();
+		
+		appHeaderHoverBackgroundColor 	= appHeaderMenuBackgroundColor.lighter(45);
+		appHeaderHoverForegroundColor	= appHeaderMenuBackgroundColor.darker(25);
 	}
 	
 	/**
@@ -87,6 +98,10 @@ public final class AmexioAppColors {
 		sb.append("$appHeaderBGColor :").append(appHeaderBackgroundColor.hexStr()).append(";").append(NL);
 		sb.append("$appHeaderFontColor :").append(appHeaderForegroundColor.hexStr()).append(";").append(NL);
 
+		sb.append("$appHeaderMenuBGColor :").append(appHeaderMenuBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("$appHeaderMenuFontColor :").append(appHeaderMenuFontColor.hexStr()).append(";").append(NL);
+
+		
 		sb.append("$appHeaderHoverBGColor :").append(appHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
 		sb.append("$appHeaderHoverFontColor :").append(appHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
 		sb.append(NL);

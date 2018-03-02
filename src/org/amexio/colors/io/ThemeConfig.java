@@ -126,7 +126,7 @@ public final class ThemeConfig {
 		fileName		  = _file;
 		themeInitFile = makeInitFileName(_file);
 		themeBootFile = makeBootFileName(_file);
-		themeName	  = _file.replaceAll("-", " ");
+		themeName	  = createThemeName(_file);
 		color1		  = _c1;
 		color2		  = _c2;
 		color3		  = (_c3 != null) ? _c3 :  "#ff7f50";
@@ -159,6 +159,15 @@ public final class ThemeConfig {
 		return "at-md-" + _fileName + ".scss";
 	}
 
+	private String createThemeName(String _name) {
+		char[] c = _name.trim().replaceAll("-", " ").toCharArray();
+		int y = 0;
+		for(int x=0; x<c.length; x++) {
+			if(x==0 || x==y) c[x] = (char) (c[x] - 32);
+			if(c[x] == 32) y = x +1;
+		}
+		return new String(c);
+	}
 	/**
 	 * Set the Theme Version
 	 * @param _version
@@ -208,6 +217,22 @@ public final class ThemeConfig {
 	 */
 	public boolean isMaterial() {
 		return isMaterial;
+	}
+	
+	/**
+	 * Returns the Design Type
+	 * @return
+	 */
+	public String designType() {
+		return (isMaterial) ? "Material Design" : "Amexio Design";
+	}
+	
+	/**
+	 * Returns the Version
+	 * @return
+	 */
+	public double getVersion() {
+		return version;
 	}
 	
 	/**
@@ -267,6 +292,7 @@ public final class ThemeConfig {
 	public String toString() {
 		StringJoiner sj = new StringJoiner(",");
 		sj.add(fileName).add(color1).add(color2);
+		sj.add(designType()).add(""+getVersion());
 		return sj.toString();
 	}
 }

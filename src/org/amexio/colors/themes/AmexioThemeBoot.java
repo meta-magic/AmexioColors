@@ -79,27 +79,17 @@ public final class AmexioThemeBoot {
 			+ "@import \"../def/amexio.media.query.scss\";";
 	
 	/**
-	 * Amexio Support Info
-	 */
-	public static final String amexioSupport = "" + NL
-			+"/** Amexio Support ---------------------------- " + NL + NL
-			+"    Contact  : amexiosupport@metamagic.in " + NL
-			+"    Forum    : http://forum.metamagicglobal.com" + NL
-			+"    API Docs : http://api.amexio.tech/" + NL
-			+"*/" + NL;
-	
-	/**
 	 * Get Complete Theme Boot instructions
 	 * 
 	 * @return String
 	 */
 	public static String getThemeBootData(String _fileName) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(AmexioLicense.copyright);
+		sb.append(AmexioLicense.COPYRIGHT);
 		sb.append(themeInitData).append(_fileName).append("\";");
 		sb.append(NL).append(NL);
 		sb.append(themeBootData);
-		sb.append(amexioSupport);
+		sb.append(AmexioLicense.AMEXIO_SUPPORT);
 		return sb.toString();
 	}
 }

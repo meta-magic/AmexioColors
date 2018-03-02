@@ -31,7 +31,7 @@ public final class AmexioLicense {
 	
 	private static final String NL = System.getProperty("line.separator");
 	
-	public static final String copyright = "/** " + NL
+	public static final String COPYRIGHT = "/** " + NL
 		+"  Copyright (c) 2018 MetaMagic Global Inc, NJ, USA " + NL
 		+"" + NL
 		+"  Permission is hereby granted, free of charge, to any person obtaining a copy" + NL
@@ -54,4 +54,15 @@ public final class AmexioLicense {
 		+"  Software Foundation." + NL
 		+"*/" + NL + NL;
 
+	/**
+	 * Amexio Support Info
+	 */
+	public static final String AMEXIO_SUPPORT = "" + NL
+			+"/** " + NL
+			+"  Amexio Support ------------------------------ " + NL
+			+"  Contact  : amexiosupport@metamagic.in " + NL
+			+"  Forum    : http://forum.metamagicglobal.com" + NL
+			+"  API Docs : http://api.amexio.tech/" + NL
+			+"*/" + NL;
+	
 }
