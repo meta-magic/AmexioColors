@@ -58,8 +58,8 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 	
 	private final String navBarBGColor;
 	private final String navBarFontColor;
-	private int rgbValue;
-	private int hue;
+	private int rgbValue = -1;
+	private int hue = -1;
 	
 	private final String mdaPath = "../node_modules/amexio-ng-extensions/styles/mda/";
 
@@ -395,6 +395,7 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 		sb.append("\"themeName\": \"").append(this.themeName).append("\",").append(NL);
 		sb.append("\"themeCssFile\": \"").append(this.themeCssFile).append("\",").append(NL);
 		sb.append("\"rgb\": ").append(this.rgbValue).append(",").append(NL);
+		sb.append("\"hue\": ").append(this.hue).append(",").append(NL);
 		sb.append("\"version\": ").append(this.version).append(",").append(NL);
 		sb.append("\"style\": \"").append(this.designType()).append("\",").append(NL);		
 		sb.append("\"navBarBGColor\": \"").append(this.navBarBGColor).append("\",").append(NL);
