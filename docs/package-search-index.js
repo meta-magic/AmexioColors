@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"org.amexio.colors.core"},{"l":"org.amexio.colors.io"},{"l":"org.amexio.colors.start"},{"l":"org.amexio.colors.themes"},{"l":"org.amexio.colors.web"},{"l":"org.amexio.examples.colors"}]
