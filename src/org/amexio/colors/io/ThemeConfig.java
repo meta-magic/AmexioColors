@@ -376,7 +376,7 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 		sb.append("\t\t{").append(NL);
 		sb.append("\t\t\"themeName\": \"").append(this.themeName).append("\",").append(NL);
 		sb.append("\t\t\"themeCssFile\": \"").append(this.themeCssFile).append("\",").append(NL);
-		sb.append("\t\t\"Link\": \"").append(this.themeImageName).append("\"").append(NL);
+		sb.append("\t\t\"link\": \"").append(this.themeImageName).append("\"").append(NL);
 		sb.append("\t\t}");
 		return sb.toString();
 	}
