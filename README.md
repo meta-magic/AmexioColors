@@ -22,7 +22,7 @@ echo "// Design-Type : Material Design " >> Themes-Data.txt
 echo "// Theme-Version : 4.0 " >> Themes-Data.txt
 echo "army-olive,#4B5320,#708238" >> Themes-Data.txt
 echo "ash-stone-black,#544C4A,#877F7D" >> Themes-Data.txt
-ac THeme-DataFiles .
+ac Theme-DataFiles outputDirectory
 ```
 
 ## Understanding various Color formats
