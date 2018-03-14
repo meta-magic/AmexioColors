@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.amexio.colors</groupId>
+  <artifactId>amexioColor</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>amexioColors</name>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <release>9</release>
+        </configuration>
+      </plugin>
+      <plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-jar-plugin</artifactId>
+	    <configuration>
+	        <archive>
+	            <manifest>
+	            		<addClasspath>true</addClasspath>
+	                <mainClass>
+	                    org.amexio.colors.start.ColorFactory
+	                </mainClass>
+	            </manifest>
+	        </archive>
+	    		</configuration>
+		</plugin>
+    </plugins>
+  </build>
+  <organization>
+  	<name>MetaMagic Global Inc</name>
+  	<url>http://www.metamagicglobal.com</url>
+  </organization>
+  <url>http://www.amexio.tech</url>
+</project>
