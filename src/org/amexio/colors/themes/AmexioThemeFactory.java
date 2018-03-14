@@ -31,6 +31,7 @@ import java.util.ArrayList;
 
 import org.amexio.colors.io.ThemeConfig;
 import org.amexio.colors.io.ThemeFileWriter;
+import org.amexio.colors.io.ThemeSelectorData;
 import org.amexio.colors.io.ThemesDataReader;
 
 /**
@@ -44,6 +45,7 @@ public class AmexioThemeFactory {
 
 	private final ThemesDataReader themesData;
 	private final ThemeFileWriter themeWriter;
+	private ThemeSelectorData selectorData;
 	private AmexioThemeBuilder themeBuilder;
 	
 	/**
@@ -65,6 +67,7 @@ public class AmexioThemeFactory {
 	public boolean createThemes() {
 		if(themesData.processFile()) {
 			ArrayList<ThemeConfig> themes = themesData.getThemes();
+			selectorData = new ThemeSelectorData(themes);
 			for(ThemeConfig theme : themes) {
 				themeBuilder = new AmexioThemeBuilder(theme);
 				themeWriter.generateFile(theme.getThemeBootFile(), 
@@ -72,6 +75,7 @@ public class AmexioThemeFactory {
 				themeWriter.generateFile(theme.getThemeInitFile(), 
 						themeBuilder.printSCSS());
 			}
+			themeWriter.generateFile("material.json", selectorData.buildJSON());
 			return true;
 		}
 		return false;
@@ -85,9 +89,9 @@ public class AmexioThemeFactory {
 	public static void main(String[] args) {
 		
 		AmexioThemeFactory factory = new AmexioThemeFactory("Themes-Data.txt",
-										"/Users/arafkarsh/AmexioColors/mda-new-2/");
+										"/Users/arafkarsh/AmexioColors/mda-new-7/");
 		if(factory.createThemes()) {
-			System.out.println("Theme Generation Process Started...");
+			System.out.println("Theme Generation Process Completed...");
 		} else {
 			System.out.println("Unable to find the file");
 		}

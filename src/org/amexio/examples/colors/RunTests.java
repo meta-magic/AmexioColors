@@ -51,9 +51,11 @@ public class RunTests {
 		// Testing Hex Value
 		
 		System.out.println("Testing the Hex Value in Color Object");
-		foreground(new Color(40,14,11)); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
-		foreground(new Color("#280e0b")); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
+		// foreground(new Color(40,14,11)); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
+		// foreground(new Color("#280e0b")); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
 		
+		foreground(new Color("#38cdff")); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
+
 		/**
 		System.out.println("Test=1 | Foreground Color ..");
 		foreground(new Color(40,14,11)); // #280e0b - HSL = 6,56,10

@@ -95,18 +95,18 @@ public class AmexioThemeColors {
 	public final String themeFontFamily; 
 	
 	// Random Colors to be used within a theme
-	public static final Color amexioColor1L = Colors.ORANGE.CORAL;
-	public static final Color amexioColor1D = Colors.RED.DARKRED;
-	public static final Color amexioColor2L = Colors.GREEN.LIME;
-	public static final Color amexioColor2D = Colors.GREEN.SEAGREEN;
-	public static final Color amexioColor3L = Colors.PURPLE.MAGENTA;
-	public static final Color amexioColor3D = Colors.PURPLE.DARKMAGENTA;
-	public static final Color amexioColor4L = Colors.BLUE.DEEPSKYBLUE;
-	public static final Color amexioColor4D = Colors.BLUE.DARKBLUE;
-	public static final Color amexioColor5L = Colors.BROWN.SANDYBROWN;
-	public static final Color amexioColor5D = Colors.BROWN.MAROON;
-	public static final Color amexioColor6L	= Colors.YELLOW.GOLD;
-	public static final Color amexioColor6D	= Colors.RED.FIREBRICK;
+	public static final Color amexioColorRedLight = Colors.ORANGE.CORAL;
+	public static final Color amexioColorRedDark = Colors.RED.CRIMSON;
+	public static final Color amexioColorGreenLight = Colors.GREEN.LIME;
+	public static final Color amexioColorGreenDark = Colors.GREEN.SEAGREEN;
+	public static final Color amexioColorPurpleLight = Colors.PURPLE.MAGENTA;
+	public static final Color amexioColorPurpleDark = Colors.PURPLE.DARKMAGENTA;
+	public static final Color amexioColorBlueLight = Colors.BLUE.DEEPSKYBLUE;
+	public static final Color amexioColorBlueDark = Colors.BLUE.DARKBLUE;
+	public static final Color amexioColorBrownLight = Colors.BROWN.SANDYBROWN;
+	public static final Color amexioColorBrownDark = Colors.BROWN.MAROON;
+	public static final Color amexioColorYellowLight	= Colors.YELLOW.GOLD;
+	public static final Color amexioColorYellowDark	= new Color("#ff9900"); // Colors.RED.FIREBRICK;
 
 	
 	/**
@@ -309,7 +309,7 @@ public class AmexioThemeColors {
 		theme4thColor 	= (_color4 != null) ? _color4 : Colors.GREEN.MEDIUMSPRINGGREEN;
 		
 		theme5thColor 	= (_color5 != null) ? _color5 : Colors.WHITE.WHITESMOKE;
-		theme6thColor 	= (_color6 != null) ? _color6 : Colors.WHITE.SNOW;
+		theme6thColor 	= (_color6 != null) ? _color6 : Colors.WHITE.WHITE;
 		
 		themeFontColor	= theme1stColor.pureColor().darker(45);
 		themeFontFamily	= (_fontFamily != null) ? _fontFamily : "Roboto,Trebuchet MS,Arial,Helvetica,sans-serif";
@@ -324,31 +324,31 @@ public class AmexioThemeColors {
 		StringBuilder sb = new StringBuilder();
 		sb.append(NL);
 		sb.append("/** Theme Color Variables ------------------------------- */").append(NL);
-		sb.append("$themePrimaryColor :").append(theme1stColor.hexStr()).append(";").append(NL);
-		sb.append("$themeSecondaryColor :").append(theme2ndColor.hexStr()).append(";").append(NL); 
-		sb.append("$theme3rdColor :").append(theme3rdColor.hexStr()).append(";").append(NL);
-		sb.append("$theme4thColor :").append(theme4thColor.hexStr()).append(";").append(NL);
+		sb.append("$themePrimaryColor : ").append(theme1stColor.hexStr()).append(";").append(NL);
+		sb.append("$themeSecondaryColor : ").append(theme2ndColor.hexStr()).append(";").append(NL); 
+		sb.append("$theme3rdColor : ").append(theme3rdColor.hexStr()).append(";").append(NL);
+		sb.append("$theme4thColor : ").append(theme4thColor.hexStr()).append(";").append(NL);
 
 		// App Background and Component Background
-		sb.append("$theme5thColor :").append(theme5thColor.hexStr()).append(";").append(NL);
-		sb.append("$theme6thColor :").append(theme6thColor.hexStr()).append(";").append(NL);
+		sb.append("$theme5thColor : ").append(theme5thColor.hexStr()).append(";").append(NL);
+		sb.append("$theme6thColor : ").append(theme6thColor.hexStr()).append(";").append(NL);
 		
-		sb.append("$themeFontColor :").append(themeFontColor.hexStr()).append(";").append(NL);
-		sb.append("$themeFontFamily :").append(themeFontFamily).append(";").append(NL);
+		sb.append("$themeFontColor : ").append(themeFontColor.hexStr()).append(";").append(NL);
+		sb.append("$themeFontFamily : ").append(themeFontFamily).append(";").append(NL);
 		sb.append(NL);
 		sb.append("/** Theme Additional Std Colors : Light and Dark shades --- */").append(NL);
-		sb.append("$amexioColor1L :").append(amexioColor1L.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor1D :").append(amexioColor1D.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor2L :").append(amexioColor2L.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor2D :").append(amexioColor2D.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor3L :").append(amexioColor3L.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor3D :").append(amexioColor3D.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor4L :").append(amexioColor4L.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor4D :").append(amexioColor4D.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor5L :").append(amexioColor5L.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor5D :").append(amexioColor5D.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor6L :").append(amexioColor6L.hexStr()).append(";").append(NL);
-		sb.append("$amexioColor6D :").append(amexioColor6D.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorRedLight : ").append(amexioColorRedLight.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorRedDark : ").append(amexioColorRedDark.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorGreenLight : ").append(amexioColorGreenLight.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorGreenDark : ").append(amexioColorGreenDark.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorPurpleLight : ").append(amexioColorPurpleLight.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorPurpleDark : ").append(amexioColorPurpleDark.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorBlueLight : ").append(amexioColorBlueLight.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorBlueDark : ").append(amexioColorBlueDark.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorBrownLight : ").append(amexioColorBrownLight.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorBrownDark : ").append(amexioColorBrownDark.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorYellowLight : ").append(amexioColorYellowLight.hexStr()).append(";").append(NL);
+		sb.append("$amexioColorYellowDark : ").append(amexioColorYellowDark.hexStr()).append(";").append(NL);
 		sb.append(NL);
 		return sb.toString();
 	}

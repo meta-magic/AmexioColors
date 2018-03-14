@@ -163,6 +163,7 @@ public final class Color {
 	 */
 	private static int checkHexValue(String _hexValue) {
 		if(_hexValue == null) return 0;
+		_hexValue = _hexValue.trim();
 		if(_hexValue.startsWith("#")) return (int)Long.parseLong(_hexValue.replace("#", ""), 16);
 		return (int)Long.parseLong(_hexValue, 16);
 	}
@@ -610,9 +611,55 @@ public final class Color {
 	/**
 	 * Returns the Lighter / Darker Color for the Current Shade
 	 * 
+	 * Color Reverse Rules 
+	 * 
+	 * 1. Hue < 186, Light < 45 then Light = 96 (Towards White Color)
+	 * 2. Hue between 186 & 219, Light < 60 then Light = 97
+	 * 3. Hue between 220 & 286, Light < 77 then light = 98
+	 * 4. Hue > 286, Light < 75 then light = 99
+	 * 
 	 * @return Color
 	 */
 	public Color reverse() {
+		if(hue < 186) {
+			return (light < 45) ?
+				hsl2rgb(this.hue, this.sat, 96, this.alpha) :
+				hsl2rgb(this.hue, this.sat, 7, this.alpha);		// Dark Color
+		} else if(hue > 185 && hue < 220) {
+			return (light < 60) ?
+				hsl2rgb(this.hue, this.sat, 97, this.alpha) :
+				hsl2rgb(this.hue, this.sat, 6, this.alpha);		// Dark Color
+		} else if(hue > 219 && hue < 286) {
+			return (light < 77) ?
+				hsl2rgb(this.hue, this.sat, 98, this.alpha) :
+				hsl2rgb(this.hue, this.sat, 5, this.alpha);		// Dark Color
+		} else if(hue > 285) {
+			return (light < 75) ?
+				hsl2rgb(this.hue, this.sat, 99, this.alpha) :
+				hsl2rgb(this.hue, this.sat, 4, this.alpha);		// Dark Color
+		} else {
+			return hsl2rgb(this.hue, this.sat, 3, this.alpha);	// Dark Color
+		}
+	}
+	
+	/**
+	 * @deprecated
+	 * @return
+	 */
+	private Color reverse2() {
+		if(light <45) {
+			return hsl2rgb(this.hue, this.sat, 97, this.alpha);
+		} else if(light <58 && sat > 70) {
+			return hsl2rgb(this.hue, this.sat, 97, this.alpha);
+		} else {
+			return hsl2rgb(this.hue, this.sat, 7, this.alpha);
+		}
+	}
+	/**
+	 * @deprecated
+	 * @return
+	 */
+	private Color reverse1() {
 		if(light <45) {
 			return hsl2rgb(this.hue, this.sat, 97, this.alpha);
 		} else {

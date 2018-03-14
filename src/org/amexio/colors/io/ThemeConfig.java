@@ -27,7 +27,10 @@
 */
 package org.amexio.colors.io;
 
+import java.util.Comparator;
 import java.util.StringJoiner;
+
+import org.amexio.colors.web.Colors;
 
 /**
  * Theme Configuration Object
@@ -36,11 +39,14 @@ import java.util.StringJoiner;
  * @version 1.0
  * @date
  */
-public final class ThemeConfig {
+public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<ThemeConfig> {
+	private static final String NL = System.getProperty("line.separator");
 	
 	private final String fileName;
 	private final String themeInitFile;
 	private final String themeBootFile;
+	private final String themeCssFile;
+	private final String themeImageName;
 	private final String color1;
 	private final String color2;
 	private final String color3;
@@ -123,44 +129,70 @@ public final class ThemeConfig {
 	 */
 	public ThemeConfig(String _file, String _c1, String _c2, String _c3,
 			String _c4, String _c5, String _c6) {
-		fileName		  = _file;
-		themeInitFile = makeInitFileName(_file);
-		themeBootFile = makeBootFileName(_file);
-		themeName	  = createThemeName(_file);
-		color1		  = _c1;
-		color2		  = _c2;
-		color3		  = (_c3 != null) ? _c3 :  "#ff7f50";
-		color4		  = (_c4 != null) ? _c4 :  "#00fa9a";
-		color5		  = (_c5 != null) ? _c5 :  "#f5f5f5";
-		color6		  = (_c6 != null) ? _c6 :  "#fffafa";
+		fileName			= setFileName(_file);
+		themeCssFile		= makeThemeCssFile();
+		themeInitFile	= makeInitFileName();
+		themeBootFile	= makeBootFileName();
+		themeName		= createThemeName();
+		themeImageName	= makeImageFileName();
+		color1			= _c1;
+		color2		  	= _c2;
+		color3		  	= (_c3 != null) ? _c3 :  Colors.ORANGE.CORAL.hexStr();
+		color4		  	= (_c4 != null) ? _c4 :  Colors.GREEN.MEDIUMSPRINGGREEN.hexStr();
+		color5		  	= (_c5 != null) ? _c5 :  Colors.WHITE.WHITESMOKE.hexStr();
+		color6		  	= (_c6 != null) ? _c6 :  Colors.WHITE.WHITE.hexStr();
 	} 
 	
 	/**
-	 * Make Init File Name
+	 * Set the Theme File Name
 	 * @param _fileName
 	 * @return
 	 */
-	private String makeInitFileName(String _fileName) {
+	private String setFileName(String _fileName) {
 		if(_fileName == null || _fileName.length() == 0) {
-			return "at-md-no-name-init.scss";
+			return "no-name";
 		}
-		return "at-md-" + _fileName + "-init.scss";
+		return _fileName.trim();
+	}
+	
+	/**
+	 * Creates the Theme CSS name
+	 * @return
+	 */
+	private String makeThemeCssFile() {
+		return "at-md-" + fileName.toLowerCase();
+	}
+	
+	/**
+	 * Theme Image File Name
+	 * @return
+	 */
+	private String makeImageFileName() {
+		return "AT-MD-" + themeName.replace(" ", "-") + ".jpg";
+	}
+	
+	/**
+	 * Make Init File Name
+	 * @return
+	 */
+	private String makeInitFileName() {
+		return "at-md-" + fileName.toLowerCase() + "-init.scss";
 	}
 
 	/**
 	 * Make Boot File Name
-	 * @param _fileName
 	 * @return
 	 */
-	private String makeBootFileName(String _fileName) {
-		if(_fileName == null || _fileName.length() == 0) {
-			return "at-md-no-name.scss";
-		}
-		return "at-md-" + _fileName + ".scss";
+	private String makeBootFileName() {
+		return "at-md-" + fileName + ".scss";
 	}
 
-	private String createThemeName(String _name) {
-		char[] c = _name.trim().replaceAll("-", " ").toCharArray();
+	/**
+	 * Create the Theme Name
+	 * @return
+	 */
+	private String createThemeName() {
+		char[] c = fileName.trim().replaceAll("-", " ").toCharArray();
 		int y = 0;
 		for(int x=0; x<c.length; x++) {
 			if(x==0 || x==y) c[x] = (char) (c[x] - 32);
@@ -236,6 +268,12 @@ public final class ThemeConfig {
 	}
 	
 	/**
+	 * Returns Theme Input Name
+	 * @return
+	 */
+	public String getThemeInputName() { return fileName; }
+	
+	/**
 	 * Returns the Theme Init File Name
 	 * @return
 	 */
@@ -247,6 +285,12 @@ public final class ThemeConfig {
 	 */
 	public String getThemeBootFile() { return themeBootFile; }
 
+	/**
+	 * Returns the Theme Material Selector Data File Name
+	 * @return
+	 */
+	public String getThemeMaterialFileName() { return "material.json"; }
+	
 	/**
 	 * Returns the Theme Name
 	 * @return
@@ -289,10 +333,51 @@ public final class ThemeConfig {
 	 */
 	public String getColor6() { return color6; }
 	
+	/**
+	 * Returns the Hash Code of the Theme Input File Name
+	 */
+	public int hashCode() {
+		return fileName.hashCode();
+	}
+	
+	/**
+	 * Sort on Theme Name
+	 */
+	@Override
+	public int compareTo(ThemeConfig _theme) {
+		return (_theme == null) ? 0 : this.themeName.compareTo(_theme.themeName);
+	}
+	
+	/**
+	 * Compare Two ThemeConfig Objects
+	 */
+	@Override
+	public int compare(ThemeConfig _tc1, ThemeConfig _tc2) {
+		return (_tc1 == null) ? 0 : _tc1.compareTo(_tc2);
+	}
+	
+	/**
+	 * Theme Data
+	 */
 	public String toString() {
 		StringJoiner sj = new StringJoiner(",");
 		sj.add(fileName).add(color1).add(color2);
 		sj.add(designType()).add(""+getVersion());
 		return sj.toString();
+	}
+	
+	/**
+	 * Builds the JSON Structure for Theme Selector
+	 * 
+	 * @return
+	 */
+	public String toJSON() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("\t\t{").append(NL);
+		sb.append("\t\t\"themeName\": \"").append(this.themeName).append("\",").append(NL);
+		sb.append("\t\t\"themeCssFile\": \"").append(this.themeCssFile).append("\",").append(NL);
+		sb.append("\t\t\"Link\": \"").append(this.themeImageName).append("\"").append(NL);
+		sb.append("\t\t}");
+		return sb.toString();
 	}
 }

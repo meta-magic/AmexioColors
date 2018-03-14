@@ -75,11 +75,14 @@ public final class AmexioAppColors {
 		appHeaderForegroundColor			= _headerBGColor.foregroundColor();
 				
 		Color pureColor					= _headerBGColor.pureColor();
-		appHeaderMenuBackgroundColor		= pureColor.darker(25);
-		appHeaderMenuFontColor			= appHeaderMenuBackgroundColor.foregroundColor();
+		// appHeaderMenuBackgroundColor	= pureColor.darker(25);
+		// appHeaderMenuFontColor		= appHeaderMenuBackgroundColor.foregroundColor();
+		
+		appHeaderMenuBackgroundColor		= _headerBGColor;
+		appHeaderMenuFontColor			= _headerBGColor.foregroundColor();		
 		
 		appHeaderHoverBackgroundColor 	= appHeaderMenuBackgroundColor.lighter(45);
-		appHeaderHoverForegroundColor	= appHeaderMenuBackgroundColor.darker(25);
+		appHeaderHoverForegroundColor	= appHeaderMenuBackgroundColor.darker(35);
 	}
 	
 	/**

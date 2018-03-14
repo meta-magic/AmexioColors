@@ -59,7 +59,7 @@ public final class AmexioLicense {
 	 */
 	public static final String AMEXIO_SUPPORT = "" + NL
 			+"/** " + NL
-			+"  Amexio Support ------------------------------ " + NL
+			+"  Amexio Support ---------------------------------- " + NL
 			+"  Contact  : amexiosupport@metamagic.in " + NL
 			+"  Forum    : http://forum.metamagicglobal.com" + NL
 			+"  API Docs : http://api.amexio.tech/" + NL

@@ -145,7 +145,7 @@ public final class AmexioThemeBuilder {
 		if(config != null) {
 			sb.append(NL);
 			sb.append("/**").append(NL);
-			sb.append("  Theme Details ------------------------------- ").append(NL);
+			sb.append("  Theme Details -------------------------------------------------------- ").append(NL);
 			sb.append("  Theme Name    : ").append(config.getThemeName()).append(NL);
 			sb.append("  Theme Version : ").append(config.getVersion()).append(NL);
 			sb.append("  Design Type   : ").append(config.designType()).append(NL);

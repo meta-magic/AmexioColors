@@ -87,8 +87,8 @@ public final class AmexioComponentColors {
 		componentForegroundColor					= _bgColor.foregroundColor();
 		componentHeaderBackgroundColor			= _headerBGColor;
 		componentHeaderForegroundColor			= _headerBGColor.foregroundColor();
-		componentFooterBackgroundColor			= _headerBGColor.foregroundColor();
-		componentFooterForegroundColor			= _headerBGColor;
+		componentFooterBackgroundColor			= _headerBGColor.lighter(45);
+		componentFooterForegroundColor			= _headerBGColor.darker(45);
 		
 		// Get the Pure Colors for Color Variations
 		Color pureBGColor 						= _headerBGColor.pureColor();
