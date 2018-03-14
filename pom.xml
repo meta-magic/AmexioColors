@@ -1,9 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>AmexioColor</groupId>
-  <artifactId>AmexioColor</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Amexio-Colors</name>
+  <artifactId>amexioColor</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>amexioColors</name>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -14,6 +15,20 @@
           <release>9</release>
         </configuration>
       </plugin>
+      <plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-jar-plugin</artifactId>
+	    <configuration>
+	        <archive>
+	            <manifest>
+	            		<addClasspath>true</addClasspath>
+	                <mainClass>
+	                    org.amexio.colors.start.ColorFactory
+	                </mainClass>
+	            </manifest>
+	        </archive>
+	    		</configuration>
+		</plugin>
     </plugins>
   </build>
   <organization>

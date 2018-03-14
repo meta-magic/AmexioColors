@@ -30,6 +30,8 @@ package org.amexio.colors.themes;
 import java.util.ArrayList;
 
 import org.amexio.colors.io.ThemeConfig;
+import org.amexio.colors.io.ThemeConfigHueSort;
+import org.amexio.colors.io.ThemeConfigRGBSort;
 import org.amexio.colors.io.ThemeFileWriter;
 import org.amexio.colors.io.ThemeSelectorData;
 import org.amexio.colors.io.ThemesDataReader;
@@ -76,6 +78,11 @@ public class AmexioThemeFactory {
 						themeBuilder.printSCSS());
 			}
 			themeWriter.generateFile("material.json", selectorData.buildJSON());
+			themeWriter.generateFile("themes.json", selectorData.buildAPIJSON());
+			selectorData = new ThemeSelectorData(themes,4);
+			themeWriter.generateFile("themes-api-showcase.json", selectorData.buildJSON());
+			selectorData.themes().sort(new ThemeConfigHueSort());
+			themeWriter.generateFile("themes-api-showcase-hue.json", selectorData.buildJSON());
 			return true;
 		}
 		return false;

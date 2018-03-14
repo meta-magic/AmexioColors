@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Built-By: arafkarsh
 Build-Jdk: 9
+Main-Class: org.amexio.colors.start.ColorFactory
 Created-By: Maven Integration for Eclipse
 

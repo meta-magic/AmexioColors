@@ -30,6 +30,7 @@ package org.amexio.colors.io;
 import java.util.Comparator;
 import java.util.StringJoiner;
 
+import org.amexio.colors.core.Color;
 import org.amexio.colors.web.Colors;
 
 /**
@@ -40,7 +41,7 @@ import org.amexio.colors.web.Colors;
  * @date
  */
 public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<ThemeConfig> {
-	private static final String NL = System.getProperty("line.separator");
+	private static final String NL = "";
 	
 	private final String fileName;
 	private final String themeInitFile;
@@ -54,6 +55,13 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 	private final String color5;
 	private final String color6;
 	private final String themeName;
+	
+	private final String navBarBGColor;
+	private final String navBarFontColor;
+	private int rgbValue;
+	private int hue;
+	
+	private final String mdaPath = "../node_modules/amexio-ng-extensions/styles/mda/";
 
 	private double version = 3.0;
 	private boolean isMaterial = true;
@@ -141,6 +149,12 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 		color4		  	= (_c4 != null) ? _c4 :  Colors.GREEN.MEDIUMSPRINGGREEN.hexStr();
 		color5		  	= (_c5 != null) ? _c5 :  Colors.WHITE.WHITESMOKE.hexStr();
 		color6		  	= (_c6 != null) ? _c6 :  Colors.WHITE.WHITE.hexStr();
+		
+		Color c			= new Color(color1);
+		navBarBGColor	= c.hexStr();
+		navBarFontColor	= c.foregroundColor().hexStr();
+		rgbValue			= c.rgb();
+		hue				= c.hue();
 	} 
 	
 	/**
@@ -297,6 +311,10 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 	 */
 	public String getThemeName() { return themeName; }
 	
+	public Integer getRGBValue() { return rgbValue; }
+	
+	public Integer getHueValue() { return hue; }
+	
 	/**
 	 * Return the Primary Color
 	 * @return
@@ -373,11 +391,27 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 	 */
 	public String toJSON() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("\t\t{").append(NL);
-		sb.append("\t\t\"themeName\": \"").append(this.themeName).append("\",").append(NL);
-		sb.append("\t\t\"themeCssFile\": \"").append(this.themeCssFile).append("\",").append(NL);
-		sb.append("\t\t\"link\": \"").append(this.themeImageName).append("\"").append(NL);
-		sb.append("\t\t}");
+		sb.append("{").append(NL);
+		sb.append("\"themeName\": \"").append(this.themeName).append("\",").append(NL);
+		sb.append("\"themeCssFile\": \"").append(this.themeCssFile).append("\",").append(NL);
+		sb.append("\"rgb\": ").append(this.rgbValue).append(",").append(NL);
+		sb.append("\"version\": ").append(this.version).append(",").append(NL);
+		sb.append("\"style\": \"").append(this.designType()).append("\",").append(NL);		
+		sb.append("\"navBarBGColor\": \"").append(this.navBarBGColor).append("\",").append(NL);
+		sb.append("\"navBarFontColor\": \"").append(this.navBarFontColor).append("\",").append(NL);
+		sb.append("\"link\": \"").append(this.themeImageName).append("\"").append(NL);
+		sb.append("}");
+		return sb.toString();
+	}
+	
+	public String toAPIDocsJSON() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("{").append(NL);
+		sb.append("\"name\": \"").append(this.themeName).append("\",").append(NL);
+		sb.append("\"description\": \"").append(this.mdaPath);
+		sb.append(this.themeBootFile).append("\",").append(NL);
+		sb.append("\"version\": ").append(this.version).append(NL);
+		sb.append("}");
 		return sb.toString();
 	}
 }

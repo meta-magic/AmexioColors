@@ -38,7 +38,7 @@ import java.util.ArrayList;
  */
 public class ThemeSelectorData {
 	
-	private static final String NL = System.getProperty("line.separator");
+	private static final String NL = "";
 	
 	private final ArrayList<ThemeConfig> themes;
 	private final int themesPerRow;
@@ -62,6 +62,14 @@ public class ThemeSelectorData {
 		themes.sort(new ThemeConfig());
 		themesPerRow = (_themesPerRow < 1) ? 1 : _themesPerRow;
 	}
+	
+	/**
+	 * Returns the Themes Config List
+	 * @return
+	 */
+	public ArrayList<ThemeConfig> themes() {
+		return themes;
+	}
 
 	/**
 	 * Returns the JSON String
@@ -82,22 +90,37 @@ public class ThemeSelectorData {
 				if(rowCount > prevRowCount) {
 					sb.append(",").append(NL);
 				}
-				sb.append("\t[").append(NL);
+				sb.append("[").append(NL);
 			}
 			if(cellCount > 1 && cellCount <= themesPerRow) {
 				sb.append(",").append(NL);
 			}
 			sb.append(theme.toJSON());
 			if(cellCount == themesPerRow) {
-				sb.append(NL).append("\t]");
+				sb.append(NL).append("]");
 				cellCount = 0;
 				prevRowCount = rowCount;
 			}
 		}
 		if(cellCount < themesPerRow) {
-			sb.append(NL).append("\t]");
+			sb.append(NL).append("]");
 		}
 		sb.append(NL).append("]").append(NL);
+		return sb.toString();
+	}
+	
+	public String buildAPIJSON() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("{").append(NL);
+		sb.append("\"properties\": [").append(NL);
+		boolean first = true;
+		for(ThemeConfig theme : themes) {
+			if(!first) sb.append(",").append(NL);
+			sb.append(theme.toAPIDocsJSON());
+			first = false;
+		}
+		sb.append(NL).append("]").append(NL);
+		sb.append("}").append(NL);
 		return sb.toString();
 	}
 }
