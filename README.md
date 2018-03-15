@@ -10,19 +10,30 @@
 To install the Amexio Colors:
 
 ```bash
-npm install -g amexio-colors
+$ sudo npm install -g amexio-colors
 ```
+Check the Amexio Colors version:
+
+```bash
+$ ac
+
+```
+
 To Generate Amexio Material Design Themes
 
 ```bash
-mkdir newThemes
-cd newThemes
-echo "// Amexio Themes v0.0 " >> Themes-Data.txt
-echo "// Design-Type : Material Design " >> Themes-Data.txt
-echo "// Theme-Version : 4.0 " >> Themes-Data.txt
-echo "army-olive,#4B5320,#708238" >> Themes-Data.txt
-echo "ash-stone-black,#544C4A,#877F7D" >> Themes-Data.txt
-ac Theme-Data.txt outputDirectory
+$ pwd
+/home/user/
+
+$ mkdir mythemes
+$ cd mythemes
+$ echo "// Amexio Themes v0.0 " >> Themes-Data.txt
+$ echo "// Design-Type : Material Design " >> Themes-Data.txt
+$ echo "// Theme-Version : 4.0 " >> Themes-Data.txt
+$ echo "army-olive,#4B5320,#708238" >> Themes-Data.txt
+$ echo "ash-stone-black,#544C4A,#877F7D" >> Themes-Data.txt
+
+$ ac Theme-Data.txt /home/user/mythemes/
 ```
 
 ## Understanding various Color formats
