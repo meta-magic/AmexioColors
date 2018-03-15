@@ -1,0 +1,35 @@
+{
+  "bin": {"ac": "jdeploy-bundle/jdeploy.js"},
+  "description": "Amexio Colors auto generates Material Design styled themes for Amexio API.",
+  "version": "1.0.2",
+  "homepage": "https://github.com/meta-magic/AmexioColors",
+  "author": {
+    "name": "MetaMagic Global",
+    "url": "https://github.com/meta-magic"
+  },
+  "main": "index.js",
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meta-magic/AmexioColors"
+  },
+  "bugs": {
+    "url": "https://github.com/meta-magic/AmexioColors/issues"
+  },
+  "keywords": [
+    "amexio",
+    "metamagic",
+    "angular",
+    "ng",
+    "ng5",
+    "themes",
+    "material design",
+    "theme builder"
+  ],
+  "jdeploy": {"jar": "amexioColor-1.0.0.jar"},
+  "dependencies": {"shelljs": "^0.7.5"},
+  "license": "Apache-2.0",
+  "name": "amexio-colors",
+  "files": ["jdeploy-bundle"],
+  "scripts": {"test": "echo \"Error: no test specified\" && exit 1"}
+}

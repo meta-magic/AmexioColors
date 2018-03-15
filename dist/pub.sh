@@ -1,0 +1,1 @@
+sudo jdeploy publish
