@@ -13,12 +13,12 @@ Amexio Colors API v1.0
     <img src="https://badge.fury.io/js/amexio-colors.svg"
       alt="NPM version" />
   </a>
-  <!-- Downloads -->
+  <!-- Downloads 
   <a href="https://www.npmjs.com/package/amexio-colors">
     <img src="https://img.shields.io/npm/dm/choo.svg?style=flat-square"
       alt="Downloads" />
   </a>
-
+  -->
    <a href="https://www.npmjs.com/package/amexio-colors">
     <img src="https://img.shields.io/npm/dt/amexio-colors.svg"
       alt="Downloads" />
@@ -57,6 +57,7 @@ Amexio Colors API v1.0
 </div>
 
 <br/>
+
 ## Getting Started
 
 To install the Amexio Colors:
