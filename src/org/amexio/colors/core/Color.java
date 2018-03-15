@@ -32,7 +32,7 @@ import java.text.DecimalFormat;
 
 /**
  * Color Object.
- * 
+ * <p>
  * A Color profile establishes the boundaries of the RGB or CMYK gamut, without a
  * color profile, the numbers expressed as RGB or CMYK has no meaning. While RGB is
  * mainly used for electronic displays CMYK is used for print medium.
@@ -46,31 +46,37 @@ import java.text.DecimalFormat;
  * RGB and CMYK are "device dependent", meaning that you can get different colors 
  * with the same set of numbers.
  * <p>
- * RGB  = Red Green Blue
- * HSL  = Hue Saturation Lightness
- * HWB  = Hue Whiteness Blackness
- * CMYK = Cyan Magenta Yellow Black
+ * <ul>
+ * <li>RGB  = Red Green Blue
+ * <li>HSL  = Hue Saturation Lightness
+ * <li>HWB  = Hue Whiteness Blackness
+ * <li>CMYK = Cyan Magenta Yellow Black
+ * </ul>
  * <p>
  * Color is an immutable object with RGB with Alpha, HSL, RGB Normalized Values 
  * (to be used in Machine Learning), Hex Values and Color Channel identification. 
  * <p>
  * It also has the following Conversion Algorithms.
  * <p>
- * RGB to HSL
- * RGB to HWB
- * RGB to CMYK
- * RGB to NCol (Natural Colors - To be implemented)
+ * <ul>
+ * <li>RGB to HSL
+ * <li>RGB to HWB
+ * <li>RGB to CMYK
+ * <li>RGB to NCol (Natural Colors - To be implemented)
  * <p>
- * HSL to RGB
+ * <li>HSL to RGB
+ * </ul>
  * <p>
  * Functions available in Color
  * <p>
- * = Pure Color of the Current Color (Saturation = 100, Lightness = 51)
- * = Gray Tone of the Current Color (Saturation = 25, Lightness = 81)
- * = Finding Foreground Color for the Current Color
- * = Finding Background Color for the Current Color
- * = Darken the Current Color
- * = Lighten the Current Color
+ * <ul>
+ * <li>= Pure Color of the Current Color (Saturation = 100, Lightness = 51)
+ * <li>= Gray Tone of the Current Color (Saturation = 25, Lightness = 81)
+ * <li>= Finding Foreground Color for the Current Color
+ * <li>= Finding Background Color for the Current Color
+ * <li>= Darken the Current Color
+ * <li>= Lighten the Current Color
+ * </ul>
  * <p>
  * Color Factory uses the the above mentioned variables to understand the color patterns
  * and color combinations. 
