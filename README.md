@@ -16,7 +16,9 @@ Check the Amexio Colors version:
 
 ```bash
 $ ac
-
+Amexio Colors v1.0
+Copyright (c) 2018, MetaMagic Global Inc, NJ, USA
+.....
 ```
 
 To Generate Amexio Material Design Themes
