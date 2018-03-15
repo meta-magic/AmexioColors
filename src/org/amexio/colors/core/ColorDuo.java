@@ -30,7 +30,7 @@ package org.amexio.colors.core;
 
 /**
  * Color Duo
- * 
+ * <p>
  * Colors that are directly opposite one another on the color wheel 
  * are known as complementary colors. Complementary colors have a 
  * high contrast and can be very effective as accent colors when 

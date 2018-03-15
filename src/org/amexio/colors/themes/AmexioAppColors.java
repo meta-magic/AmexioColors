@@ -32,14 +32,14 @@ import org.amexio.colors.core.Color;
 /**
  * Theme Builder will automatically determines the Font Colors and 
  * Background Colors for various component properties like 
- * 
+ * <p>
  * 01. App Bacground Color
  * 02. App Foreground Color
  * 03. App Header Background Color
  * 04. App Header Foreground Color
  * 05. App Header Hover Color
  * 06. App Header Hover Foreground Color
- * 
+ * <p>
  * @author Araf Karsh Hamid
  * @version 1.0
  * @date February 25, 2018

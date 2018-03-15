@@ -30,7 +30,7 @@ package org.amexio.colors.core;
 /**
  * 
  * NEUTRAL COLORS
- * 
+ * <p>
  * Neutral schemes, like analogous harmonies, are formed by taking 
  * the colors on either side of a chosen color but at half the distance. 
  * While analogous schemes typically use colors 30 degrees apart, neutral 

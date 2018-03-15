@@ -68,7 +68,7 @@ public final class ColorFactory {
 	 * Print the API Usage in command line.
 	 */
 	private static void printUsage() {
-		System.out.println("Amexio Colors v1.0.3");
+		System.out.println("Amexio Colors v1.0.4");
 		System.out.println("Copyright (c) 2018, MetaMagic Global Inc, NJ, USA");
 		System.out.println("----------------------------------------------------------------------");
 		System.out.println("Checkout more details in: https://github.com/meta-magic/AmexioColors");

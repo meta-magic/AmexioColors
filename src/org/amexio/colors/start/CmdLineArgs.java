@@ -25,16 +25,20 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
 */
-
-package org.amexio.colors.core;
+package org.amexio.colors.start;
 
 /**
- * Color Factory
+ * Command Line Arguments
  * 
  * @author Araf Karsh Hamid
  * @version 1.0
- * @date February 24, 2018
+ * @date
  */
-public class ColorFactory {
+public class CmdLineArgs {
+	
+	public final static String themeInputFlag 		= "-i";
+	public final static String themeDestinationFlag 	= "-o";
+	
+	private final static String m2flag				= "-m";
 
 }

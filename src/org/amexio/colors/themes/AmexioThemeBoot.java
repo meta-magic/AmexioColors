@@ -29,9 +29,9 @@ package org.amexio.colors.themes;
 
 /**
  * Theme Boot File. 
- * 
+ * <p>
  * This file will load all the related theme Files. 
- * 
+ * <p>
  * 01. ../mda/init.scss
  * 02. ../def/common.scss
  * 03. ../def/..forminputs.scss
@@ -42,7 +42,7 @@ package org.amexio.colors.themes;
  * 08. ../def/..panes.scss
  * 09. ../def/..animation.scss
  * 10. ../def/..media.query.scss
- * 
+ * <p>
  * @author Araf Karsh Hamid
  * @version 1.0
  * @date

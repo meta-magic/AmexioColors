@@ -32,26 +32,26 @@ import org.amexio.colors.web.Colors;
 
 /**
  * Defines Amexio Theme Params.
- * 
+ * <p>
  * Based on the Theme Colors :
- * 
+ * <p>
  * 01. Theme Color 1 
  * 02. Theme Color 2 
  * 03. Theme Color 3
  * 04. Theme Color 4
  * 05. Theme Font Color
  * 06. Theme Font Family
- * 
+ * <p>
  * Theme Builder will automatically determines the Font Colors and 
  * Background Colors for various component properties like 
- * 
+ * <p>
  * 01. App Bacground Color
  * 02. App Foreground Color
  * 03. App Header Background Color
  * 04. App Header Foreground Color
  * 05. App Header Hover Color
  * 06. App Header Hover Foreground Color
- * 
+ * <p>
  * 01. Component Bacground Color
  * 02. Component Foreground Color
  * 03. Component Header Background Color
@@ -60,12 +60,12 @@ import org.amexio.colors.web.Colors;
  * 06. Component Hover Foreground Color
  * 07. Component Footer Background Color
  * 08. Component Footer Foreground Color
- * 
+ * <p>
  * 09. Component Active Background Color
  * 10. Component Active Foreground Color
  * 11. Component Disabled Background Color
  * 12. Component Disabled Foreground Color
- * 
+ * <p>
  * @author Araf Karsh Hamid
  * @version 1.0
  * @date February 25, 2018

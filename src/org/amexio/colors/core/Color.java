@@ -36,45 +36,45 @@ import java.text.DecimalFormat;
  * A Color profile establishes the boundaries of the RGB or CMYK gamut, without a
  * color profile, the numbers expressed as RGB or CMYK has no meaning. While RGB is
  * mainly used for electronic displays CMYK is used for print medium.
- * 
+ * <p>
  * When all the colors of RGB combines you will get white similar to the convergence
  * of the Rainbow colors resulting in white light.
- * 
+ * <p>
  * At the same time when all the colors of CMYK combines you will get Black as it 
  * represents the absorption of light resulting in Darkness.
- * 
+ * <p>
  * RGB and CMYK are "device dependent", meaning that you can get different colors 
  * with the same set of numbers.
- * 
+ * <p>
  * RGB  = Red Green Blue
  * HSL  = Hue Saturation Lightness
  * HWB  = Hue Whiteness Blackness
  * CMYK = Cyan Magenta Yellow Black
- * 
+ * <p>
  * Color is an immutable object with RGB with Alpha, HSL, RGB Normalized Values 
  * (to be used in Machine Learning), Hex Values and Color Channel identification. 
- * 
+ * <p>
  * It also has the following Conversion Algorithms.
- * 
+ * <p>
  * RGB to HSL
  * RGB to HWB
  * RGB to CMYK
  * RGB to NCol (Natural Colors - To be implemented)
- * 
+ * <p>
  * HSL to RGB
- * 
+ * <p>
  * Functions available in Color
- * 
+ * <p>
  * = Pure Color of the Current Color (Saturation = 100, Lightness = 51)
  * = Gray Tone of the Current Color (Saturation = 25, Lightness = 81)
  * = Finding Foreground Color for the Current Color
  * = Finding Background Color for the Current Color
  * = Darken the Current Color
  * = Lighten the Current Color
- * 
+ * <p>
  * Color Factory uses the the above mentioned variables to understand the color patterns
  * and color combinations. 
- * 
+ * <p>
  * @author Araf Karsh Hamid
  * @version 1.0
  * @date February 22, 2018
@@ -147,7 +147,7 @@ public final class Color {
 	
 	/**
 	 * Create Color with a HEX Value. 
-	 * 
+	 * <p>
 	 * Example for White = 0xFFFFFF, Black = 0x000000
 	 * 
 	 * @param String _hexValue
@@ -359,17 +359,17 @@ public final class Color {
 	
 	/**
 	 * Calculates the CMYK values of the Color
-	 * 
+	 * <p>
 	 * A Color profile establishes the boundaries of the RGB or CMYK gamut, without a
 	 * color profile, the numbers expressed as RGB or CMYK has no meaning. While RGB is
 	 * mainly used for electronic displays CMYK is used for print medium.
-	 * 
+	 * <p>
 	 * When all the colors of RGB combines you will get white similar to the convergence
 	 * of the Rainbow colors results in white light.
-	 * 
+	 * <p>
 	 * At the same time when all the colors of CMYK combines you will get Black as it 
 	 * represents the absorption of light resulting in Darkness.
-	 * 
+	 * <p>
 	 * RGB and CMYK are "device dependent", meaning that you can get different colors 
 	 * with the same set of numbers.
 	 */
@@ -547,7 +547,7 @@ public final class Color {
 	// -----------------------------------------------------------------------
 	
 	/**
-	 * Returns the Pure Color for the Current Color 
+	 * Returns the Pure Color for the Current Color <p>
 	 * Saturation = 100, Lightness = 51, Hue will be Current Color Value
 	 * 
 	 * @return
@@ -557,7 +557,7 @@ public final class Color {
 	}
 	
 	/**
-	 * Returns the Gray Tone for the Current Color
+	 * Returns the Gray Tone for the Current Color<p>
 	 * Saturation = 25, Lightness = 81, Hue will be Current Color Value
 	 * 
 	 * @return
@@ -610,9 +610,9 @@ public final class Color {
 	
 	/**
 	 * Returns the Lighter / Darker Color for the Current Shade
-	 * 
+	 * <p>
 	 * Color Reverse Rules 
-	 * 
+	 * <p>
 	 * 1. Hue < 186, Light < 45 then Light = 96 (Towards White Color)
 	 * 2. Hue between 186 & 219, Light < 60 then Light = 97
 	 * 3. Hue between 220 & 286, Light < 77 then light = 98
@@ -759,7 +759,7 @@ public final class Color {
 	}
 	/**
 	 * Do all the three tests for all three Color Channels - one by one.
-	 * 
+	 * <p>
 	 * h = Represents the different color channel values of Red, Green & Blue
 	 * 
 	 * @param p

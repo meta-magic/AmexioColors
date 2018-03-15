@@ -25,22 +25,16 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
 */
+
 package org.amexio.colors.core;
 
 /**
- * Tetradic Colors
- * <p>
- * Tetradic color harmonies are formed by two sets of complementary colors 
- * 60 degrees apart on the color wheel. Tetradic schemes are an excellent 
- * starting point for creating color palettes; fine tune them using color 
- * shades, tints and tones.
- *  
+ * Color Factory
  * 
  * @author Araf Karsh Hamid
  * @version 1.0
- * @date February 23, 2018
+ * @date February 24, 2018
  */
-
-public class ColorTetradic {
+public class ColorCombinationFactory {
 
 }

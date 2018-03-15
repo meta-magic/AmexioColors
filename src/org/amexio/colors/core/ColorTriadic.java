@@ -31,7 +31,7 @@ package org.amexio.colors.core;
 
 /**
  * Triadic Colors
- * 
+ * <p>
  * Triadic harmonies consist of three colors equidistant from one another on 
  * the color wheel. Like complementary colors, triadic schemes tend to be very 
  * bright with a high contrast and work best when one color dominates.

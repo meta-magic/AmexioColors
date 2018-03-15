@@ -32,22 +32,22 @@ import org.amexio.colors.core.Color;
 /**
  * Theme Builder will automatically determines the Font Colors and 
  * Background Colors for various component properties like 
- * 
+ * <p>
  * 01. Component Bacground Color
  * 02. Component Foreground Color
- * 
+ * <p>
  * 03. Component Header Background Color
  * 04. Component Header Foreground Color
  * 05. Component Hover Background Color
  * 06. Component Hover Foreground Color
  * 07. Component Footer Background Color
  * 08. Component Footer Foreground Color
- * 
+ * <p>
  * 09. Component Active Background Color
  * 10. Component Active Foreground Color
  * 11. Component Disabled Background Color
  * 12. Component Disabled Foreground Color
- * 
+ * <p>
  * @author Araf Karsh Hamid
  * @version 1.0
  * @date February 25, 2018

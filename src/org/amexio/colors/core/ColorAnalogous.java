@@ -29,7 +29,7 @@ package org.amexio.colors.core;
 
 /**
  * ANALOGOUS COLORS
- * 
+ * <p>
  * Analogous harmonies are created by selecting the colors directly 
  * adjacent to a chosen color. Frequently found in web design, analogous 
  * schemes, when paired with a complementary color for contrast, can 

@@ -32,16 +32,16 @@ import org.amexio.colors.io.ThemeConfig;
 
 /**
  * Amexio Theme Builder
- * 
+ * <p>
  * Builds an Amexio Theme based on Multiple Color Choices
- * 
+ * <p>
  * Following the Are the Color Choice available
- * 
+ * <p>
  * Build Themes on 
  * 1. ColorDuo (Two Colors)
  * 2. ColorTriadic (Three Colors)
  * 3. 
- * 
+ * <p>
  * 
  * @author Araf Karsh Hamid
  * @version 1.0
