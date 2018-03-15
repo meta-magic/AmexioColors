@@ -300,6 +300,11 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 	public String getThemeBootFile() { return themeBootFile; }
 
 	/**
+	 * Returns the CSS File name
+	 * @return
+	 */
+	public String getCssFileName() { return themeCssFile + ".css"; }
+	/**
 	 * Returns the Theme Material Selector Data File Name
 	 * @return
 	 */

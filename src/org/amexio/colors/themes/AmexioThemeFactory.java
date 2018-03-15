@@ -29,6 +29,7 @@ package org.amexio.colors.themes;
 
 import java.util.ArrayList;
 
+import org.amexio.colors.io.SassToCssBuilder;
 import org.amexio.colors.io.ThemeConfig;
 import org.amexio.colors.io.ThemeConfigHueSort;
 import org.amexio.colors.io.ThemeConfigRGBSort;
@@ -83,6 +84,8 @@ public class AmexioThemeFactory {
 			themeWriter.generateFile("themes-api-showcase.json", selectorData.buildJSON());
 			selectorData.themes().sort(new ThemeConfigHueSort());
 			themeWriter.generateFile("themes-api-showcase-hue.json", selectorData.buildJSON());
+			SassToCssBuilder sass2Css = new SassToCssBuilder(themes);
+			themeWriter.generateFile("sass2css.sh", sass2Css.buildScript());
 			return true;
 		}
 		return false;
