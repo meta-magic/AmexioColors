@@ -38,6 +38,11 @@ $ echo "ash-stone-black,#544C4A,#877F7D" >> Themes-Data.txt
 $ ac Themes-Data.txt /home/user/mythemes/
 ```
 
+## Amexio Colors API Documentation
+
+Checkout the [Amexio Colors API Documentation](https://meta-magic.github.io/AmexioColors/index.html?overview-summary.html) published in GitHub Pages. 
+
+
 ## Understanding various Color formats
 
  RGB  = Red Green Blue<br>
@@ -127,7 +132,7 @@ $ ac Themes-Data.txt /home/user/mythemes/
  
  ## License
 
-Copyright © [MetaMagic Global Inc](http://www.metamagicglobal.com/), 2017-18. [Amexio Angular EXtensions](http://www.amexio.tech). All rights reserved.
+Copyright © [MetaMagic Global Inc](http://www.metamagicglobal.com/), 2017-18. [Amexio Colors API](http://www.amexio.tech). All rights reserved.
 
 Licensed under the [Apache 2.0](http://www.amexio.org/metamagic-showcase/license.html)  License.
 
