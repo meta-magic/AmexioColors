@@ -7,7 +7,56 @@ Amexio Colors API v1.0
 <h2 align="center">
 (A member of MetaMagic Blue Qube family)
 </h2>
+<div align="center">
+  <!-- NPM version -->
+  <a href="https://www.npmjs.com/package/amexio-colors">
+    <img src="https://badge.fury.io/js/amexio-colors.svg"
+      alt="NPM version" />
+  </a>
+  <!-- Downloads -->
+  <a href="https://www.npmjs.com/package/amexio-colors">
+    <img src="https://img.shields.io/npm/dm/choo.svg?style=flat-square"
+      alt="Downloads" />
+  </a>
 
+   <a href="https://www.npmjs.com/package/amexio-colors">
+    <img src="https://img.shields.io/npm/dt/amexio-colors.svg"
+      alt="Downloads" />
+  </a>
+  <!--
+  <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+<script type="IN/FollowCompany" data-id="13316060" data-counter="top"></script>
+-->
+</div>
+<div align="center">
+  <h3>
+    <a href="http://www.amexio.tech/">
+      Website
+    </a>
+    <span> | </span>
+    <a href="https://meta-magic.github.io/AmexioColors/index.html?overview-summary.html">
+      Colors API Docs
+    </a>
+    <span> | </span>
+    <a href="http://amexio.org/api/v4.1/#/amexio-colors">
+      Colors Demo
+    </a>
+    <span> | </span>
+    <a href="http://demo.amexio.tech/">
+      Demo SE
+    </a>
+    <span> | </span>
+    <a href="http://forum.metamagicglobal.com/">
+      Forum
+    </a>
+    <span> | </span>
+    <a href="https://www.metamagicglobal.com/">
+      MetaMagic Global
+    </a>
+  </h3>
+</div>
+
+<br/>
 ## Getting Started
 
 To install the Amexio Colors:
