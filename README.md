@@ -35,7 +35,7 @@ $ echo "// Theme-Version : 4.0 " >> Themes-Data.txt
 $ echo "army-olive,#4B5320,#708238" >> Themes-Data.txt
 $ echo "ash-stone-black,#544C4A,#877F7D" >> Themes-Data.txt
 
-$ ac Theme-Data.txt /home/user/mythemes/
+$ ac Themes-Data.txt /home/user/mythemes/
 ```
 
 ## Understanding various Color formats
