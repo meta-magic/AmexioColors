@@ -2,8 +2,11 @@
 <img src="https://image.ibb.co/cZS6ax/Amexio_Colors_Logo_FF.jpg" alt="Amexio Colors Logo" align="center">
 
 <h1 align="center">
-# Amexio Colors API v1.0
+Amexio Colors API v1.0
 </h1>
+<h2 align="center">
+(A member of MetaMagic Blue Qube family)
+</h2>
 
 ## Getting Started
 
