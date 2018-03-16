@@ -62,6 +62,9 @@ public final class AmexioThemeBoot {
 			+"/** Initialze HTML variables ------------ */" + NL 
 			+ "@import \"../def/common.scss\";" + NL + NL
 			
+			// +"/** Initialze Amexio Colors variables ------------ */" + NL 
+			// + "@import \"../def/amexioColors.scss\";" + NL + NL
+			
 			+"/** Initialze Component variables ------------ */" + NL 
 			+ "@import \"../def/amexio.forminputs.scss\";" + NL 
 			+ "@import \"../def/amexio.enterprise.scss\";" + NL 

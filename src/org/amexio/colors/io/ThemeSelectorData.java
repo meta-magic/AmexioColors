@@ -102,7 +102,8 @@ public class ThemeSelectorData {
 				prevRowCount = rowCount;
 			}
 		}
-		if(cellCount < themesPerRow) {
+		// Close the Row if the Row Contains incomplete data
+		if(cellCount > 0 && cellCount < themesPerRow) {
 			sb.append(NL).append("]");
 		}
 		sb.append(NL).append("]").append(NL);

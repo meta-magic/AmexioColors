@@ -141,7 +141,7 @@ public final class AmexioThemeBuilder {
 	 */
 	public String printSCSS() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(AmexioLicense.COPYRIGHT);
+		sb.append(AmexioLicense.COPYRIGHT_SMALL);
 		if(config != null) {
 			sb.append(NL);
 			sb.append("/**").append(NL);

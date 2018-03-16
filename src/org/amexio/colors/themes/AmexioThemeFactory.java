@@ -80,6 +80,7 @@ public class AmexioThemeFactory {
 			}
 			themeWriter.generateFile("material.json", selectorData.buildJSON());
 			themeWriter.generateFile("themes.json", selectorData.buildAPIJSON());
+			themeWriter.generateFile("amexioColors.scss", AmexioColors.printCSS());
 			selectorData = new ThemeSelectorData(themes,3);
 			themeWriter.generateFile("themes-api-showcase.json", selectorData.buildJSON());
 			selectorData.themes().sort(new ThemeConfigHueSort());

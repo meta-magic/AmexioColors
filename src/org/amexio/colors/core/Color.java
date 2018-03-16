@@ -406,6 +406,18 @@ public final class Color {
 	}
 
 	/**
+	 * Returns the CSS RGB Function with Alpha Value
+	 * 
+	 * @return
+	 */
+	public String rgbFunction() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("rgb(").append(red).append(",").append(green).append(",");
+		sb.append(blue).append(",").append(alpha).append(")");
+		return sb.toString();
+		
+	}
+	/**
 	 * Returns Red Color Int Value
 	 * 
 	 * @return int
@@ -843,8 +855,23 @@ public final class Color {
 	 */
 	public int hashCode() {
 		return rgb;
-	}
+	}	
 	
+	/**
+	 * Prints Required Color Values
+	 * @return
+	 */
+	public String printColor() {
+		StringBuilder s = new StringBuilder();
+		s.append(colorName);
+		s.append(": #").append(hex);
+		s.append(" rgb(").append(red);
+		s.append(",").append(green);
+		s.append(",").append(blue);
+		s.append(",").append(alpha);
+		s.append(");");
+		return s.toString();
+	}
 	/**
 	 * Prints all the Color Values
 	 * 

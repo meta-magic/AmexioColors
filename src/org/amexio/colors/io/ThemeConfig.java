@@ -396,8 +396,9 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 	 */
 	public String toJSON() {
 		StringBuilder sb = new StringBuilder();
+		String theme = (this.themeName.startsWith("Z ")) ? themeName.replaceAll("Z Flag","") : themeName;
 		sb.append("{").append(NL);
-		sb.append("\"themeName\": \"").append(this.themeName).append("\",").append(NL);
+		sb.append("\"themeName\": \"").append(theme.trim()).append("\",").append(NL);
 		sb.append("\"themeCssFile\": \"").append(this.themeCssFile).append("\",").append(NL);
 		sb.append("\"rgb\": ").append(this.rgbValue).append(",").append(NL);
 		sb.append("\"hue\": ").append(this.hue).append(",").append(NL);
@@ -412,8 +413,9 @@ public final class ThemeConfig implements Comparable<ThemeConfig>, Comparator<Th
 	
 	public String toAPIDocsJSON() {
 		StringBuilder sb = new StringBuilder();
+		String theme = (this.themeName.startsWith("Z ")) ? themeName.replaceAll("Z Flag","") : themeName;
 		sb.append("{").append(NL);
-		sb.append("\"name\": \"").append(this.themeName).append("\",").append(NL);
+		sb.append("\"name\": \"").append(theme.trim()).append("\",").append(NL);
 		sb.append("\"description\": \"").append(this.mdaPath);
 		sb.append(this.themeBootFile).append("\",").append(NL);
 		sb.append("\"version\": ").append(this.version).append(NL);

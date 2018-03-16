@@ -77,6 +77,10 @@ public final class AmexioLicense {
 			+"#  Software Foundation." + NL
 			+NL + NL;
 	
+	public static final String COPYRIGHT_SMALL = "/** " + NL
+			+"  Copyright (c) 2018 MetaMagic Global Inc, NJ, USA " + NL
+			+"*/" + NL;
+			
 	/**
 	 * Amexio Support Info
 	 */
