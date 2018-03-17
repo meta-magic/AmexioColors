@@ -28,6 +28,7 @@
 package org.amexio.examples.colors;
 
 import org.amexio.colors.core.Color;
+import org.amexio.colors.start.AmexioCLIHelp;
 import org.amexio.colors.web.Colors;
 
 /**
@@ -55,6 +56,9 @@ public class RunTests {
 		// foreground(new Color("#280e0b")); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
 		
 		foreground(new Color("#38cdff")); // #280e0b - HSL = 6,56,10 | RGB = 40,14,11
+		
+		System.out.println(AmexioCLIHelp.PRODUCT);
+		System.out.println(AmexioCLIHelp.HELP);
 
 		/**
 		System.out.println("Test=1 | Foreground Color ..");

@@ -68,24 +68,8 @@ public final class ColorFactory {
 	 * Print the API Usage in command line.
 	 */
 	private static void printUsage() {
-		System.out.println("Amexio Colors v1.0.4");
-		System.out.println("Copyright (c) 2018, MetaMagic Global Inc, NJ, USA");
-		System.out.println("----------------------------------------------------------------------");
-		System.out.println("Checkout more details in: https://github.com/meta-magic/AmexioColors");
-		System.out.println("----------------------------------------------------------------------");
-		System.out.println("themesInputFile : Sample Input File Contains following data\n");
-		System.out.println("// Amexio Themes v4.0 - Jan 31, 2018\n" + 
-							"// Design-Type : Material Design\n" + 
-							"// Theme-Version : 4.0\n" + 
-							"army-olive,#4B5320,#708238\n" + 
-							"ash-stone-black,#544C4A,#877F7D");
-		System.out.println("");
-		System.out.println("----------------------------------------------------------------------");
-		System.out.println("outputFolder: All the required files will be generated");
-		System.out.println("              in this folder. Example /home/johndoe/themes/\n");
-		System.out.println("----------------------------------------------------------------------");
-		System.out.println("Usage: ac themesInputFile outputFolder");
-		System.out.println("----------------------------------------------------------------------");
+		System.out.println(AmexioCLIHelp.PRODUCT);
+		System.out.println(AmexioCLIHelp.PARAM_EXAMPLE);;
 	}
 	
 	/**

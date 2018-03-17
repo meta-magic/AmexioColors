@@ -46,7 +46,7 @@ import org.amexio.colors.io.ThemesDataReader;
  */
 public class AmexioThemeFactory {
 
-	private final ThemesDataReader themesData;
+	private final ThemesDataReader themesInputReader;
 	private final ThemeFileWriter themeWriter;
 	private ThemeSelectorData selectorData;
 	private AmexioThemeBuilder themeBuilder;
@@ -58,7 +58,7 @@ public class AmexioThemeFactory {
 	 * @param _destination
 	 */
 	public AmexioThemeFactory(String _inputFile, String _destination) {
-		themesData = new ThemesDataReader(_inputFile, _destination);
+		themesInputReader = new ThemesDataReader(_inputFile, _destination);
 		themeWriter = new ThemeFileWriter(_destination);
 		
 	}
@@ -68,8 +68,8 @@ public class AmexioThemeFactory {
 	 * @return
 	 */
 	public boolean createThemes() {
-		if(themesData.processFile()) {
-			ArrayList<ThemeConfig> themes = themesData.getThemes();
+		if(themesInputReader.processFile()) {
+			ArrayList<ThemeConfig> themes = themesInputReader.getThemes();
 			selectorData = new ThemeSelectorData(themes);
 			for(ThemeConfig theme : themes) {
 				themeBuilder = new AmexioThemeBuilder(theme);

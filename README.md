@@ -1,5 +1,5 @@
 
-<img src="https://image.ibb.co/cZS6ax/Amexio_Colors_Logo_FF.jpg" alt="Amexio Colors Logo" align="center">
+<img src="http://image.ibb.co/f3yVVH/Amexio_Colors_Full_Logo_2_T.png" alt="Amexio Colors Logo" align="center">
 
 <h1 align="center">
 Amexio Colors API v1.0

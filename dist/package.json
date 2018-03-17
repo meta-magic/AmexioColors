@@ -1,11 +1,11 @@
 {
   "bin": {"ac": "jdeploy-bundle/jdeploy.js"},
   "description": "Amexio Colors auto generates Material Design styled themes for Amexio API.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "https://github.com/meta-magic/AmexioColors",
   "author": {
     "name": "MetaMagic Global",
-    "url": "https://github.com/meta-magic"
+    "url": "https://amexio.tech/amexio-colors"
   },
   "main": "index.js",
   "preferGlobal": true,
