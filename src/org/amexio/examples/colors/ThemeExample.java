@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import org.amexio.colors.core.Color;
+import org.amexio.colors.io.ThemeConfig;
 import org.amexio.colors.themes.AmexioThemeBuilder;
 
 public class ThemeExample {
@@ -43,7 +44,8 @@ public class ThemeExample {
 		
 		// Theme Light Blue
 		AmexioThemeBuilder builder = new AmexioThemeBuilder(
-		 		new Color("#4ddfe8"), new Color("#81D4F9"));
+		 		new ThemeConfig(0, "no-file", "#4ddfe8", "#81D4F9")
+		 				);
 		// AmexioThemeBuilder builder = new AmexioThemeBuilder();
 		System.out.println(builder.printSCSS());
 		
@@ -74,7 +76,7 @@ public class ThemeExample {
 		try {
 			out = new PrintWriter(
 								new BufferedWriter(new FileWriter(file)));
-			AmexioThemeBuilder builder = new AmexioThemeBuilder();
+			AmexioThemeBuilder builder = new AmexioThemeBuilder(new ThemeConfig());
 			String data = builder.printSCSS();
 			out.write(data);
 		} catch (IOException e) {

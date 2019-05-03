@@ -117,25 +117,94 @@ public final class AmexioComponentColors {
 	public String printSCSS() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("/** Component Color Variables ------------------------ */").append(NL);
-		sb.append("$componentBGColor :").append(componentBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentFontColor :").append(componentForegroundColor.hexStr()).append(";").append(NL); 
+		sb.append("$componentBGColor : ").append("var(--componentBGColor);").append(NL);
+		sb.append("$componentFontColor : ").append("var(--componentFontColor);").append(NL); 
 		
-		sb.append("$componentHeaderBGColor :").append(componentHeaderBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentHeaderFontColor :").append(componentHeaderForegroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentFooterBGColor :").append(componentFooterBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentFooterFontColor :").append(componentFooterForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("$componentHeaderBGColor : ").append("var(--componentHeaderBGColor);").append(NL);
+		sb.append("$componentHeaderFontColor : ").append("var(--componentHeaderFontColor);").append(NL);
+		sb.append("$componentFooterBGColor : ").append("var(--componentFooterBGColor);").append(NL);
+		sb.append("$componentFooterFontColor : ").append("var(--componentFooterFontColor);").append(NL);
 		
-		sb.append("$componentDataBGColor :").append(componentDataBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentDataFontColor :").append(componentDataForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("$componentDataBGColor : ").append("var(--componentDataBGColor);").append(NL);
+		sb.append("$componentDataFontColor : ").append("var(--componentDataFontColor);").append(NL);
 		
-		sb.append("$componentHoverBGColor :").append(componentHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentHoverFontColor :").append(componentHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("$componentHoverBGColor : ").append("var(--componentHoverBGColor);").append(NL);
+		sb.append("$componentHoverFontColor : ").append("var(--componentHoverFontColor);").append(NL);
 		
-		sb.append("$componentActiveBGColor :").append(componentActiveBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentActiveFontColor :").append(componentActiveForegroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentDisabledBGColor :").append(componentDisabledBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$componentDisabledFontColor :").append(componentDisbaledForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("$componentActiveBGColor : ").append("var(--componentActiveBGColor);").append(NL);
+		sb.append("$componentActiveFontColor : ").append("var(--componentActiveFontColor);").append(NL);
+		sb.append("$componentDisabledBGColor : ").append("var(--componentDisabledBGColor);").append(NL);
+		sb.append("$componentDisabledFontColor : ").append("var(--componentDisabledFontColor);").append(NL);
+		sb.append(NL);
+		sb.append("$componentBoxShadow  : ").append("var(--componentBoxShadow);").append(NL);
 		
+		sb.append(NL);
+		return sb.toString();
+	}
+	
+	/**
+	 * Prints the CSS for Component Vars
+	 * 
+	 * @return String
+	 */
+	public String printCSS() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("/** Component Color CSS Variables ------------------------ */").append(NL);
+		sb.append("--componentBGColor :").append(componentBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentFontColor :").append(componentForegroundColor.hexStr()).append(";").append(NL); 
+		
+		sb.append("--componentHeaderBGColor :").append(componentHeaderBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentHeaderFontColor :").append(componentHeaderForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentFooterBGColor :").append(componentFooterBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentFooterFontColor :").append(componentFooterForegroundColor.hexStr()).append(";").append(NL);
+		
+		sb.append("--componentDataBGColor :").append(componentDataBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentDataFontColor :").append(componentDataForegroundColor.hexStr()).append(";").append(NL);
+		
+		sb.append("--componentHoverBGColor :").append(componentHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentHoverFontColor :").append(componentHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
+		
+		sb.append("--componentActiveBGColor :").append(componentActiveBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentActiveFontColor :").append(componentActiveForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentDisabledBGColor :").append(componentDisabledBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--componentDisabledFontColor :").append(componentDisbaledForegroundColor.hexStr()).append(";").append(NL);
+		sb.append(NL);
+		
+		sb.append("--componentBoxShadow :0 0px 1px 0 white, 0 2px 10px 0 rgba(0, 0, 0, 0.12)").append(NL);;
+
+		sb.append(NL);
+		return sb.toString();
+	}
+	
+	/**
+	 * Print the CSS3 Vars for the Component Variables
+	 * @return
+	 */
+	public String printCSSJSON() {
+		StringBuilder sb = new StringBuilder();
+		// sb.append("/** Component Color CSS Variables ------------------------ */").append(NL);
+		sb.append("{ \"key\": \"--componentBGColor\", \"value\": \"").append(componentBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentFontColor\", \"value\": \"").append(componentForegroundColor.hexStr()).append("\"},").append(NL); 
+		
+		sb.append("{ \"key\": \"--componentHeaderBGColor\", \"value\": \"").append(componentHeaderBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentHeaderFontColor\", \"value\": \"").append(componentHeaderForegroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentFooterBGColor\", \"value\": \"").append(componentFooterBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentFooterFontColor\", \"value\": \"").append(componentFooterForegroundColor.hexStr()).append("\"},").append(NL);
+		
+		sb.append("{ \"key\": \"--componentDataBGColor\", \"value\": \"").append(componentDataBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentDataFontColor\", \"value\": \"").append(componentDataForegroundColor.hexStr()).append("\"},").append(NL);
+		
+		sb.append("{ \"key\": \"--componentHoverBGColor\", \"value\": \"").append(componentHeaderHoverBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentHoverFontColor\", \"value\": \"").append(componentHeaderHoverForegroundColor.hexStr()).append(";\"},").append(NL);
+		
+		sb.append("{ \"key\": \"--componentActiveBGColor\", \"value\": \"").append(componentActiveBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentActiveFontColor\", \"value\": \"").append(componentActiveForegroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentDisabledBGColor\", \"value\": \"").append(componentDisabledBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--componentDisabledFontColor\", \"value\": \"").append(componentDisbaledForegroundColor.hexStr()).append("\"},").append(NL);
+		sb.append(NL);
+		
+		sb.append("{ \"key\": \"--componentBoxShadow\", \"value\": \"0 0px 1px 0 white, 0 2px 10px 0 rgba(0, 0, 0, 0.12)\"}").append(NL);;
+
 		sb.append(NL);
 		return sb.toString();
 	}

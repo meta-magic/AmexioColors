@@ -71,14 +71,14 @@ public final class AmexioAppColors {
 		appBackgroundColor 				= _bgColor;
 		appForegroundColor				= _bgColor.foregroundColor();
 		
-		appHeaderBackgroundColor			= _headerBGColor;
-		appHeaderForegroundColor			= _headerBGColor.foregroundColor();
+		appHeaderBackgroundColor		= _headerBGColor;
+		appHeaderForegroundColor		= _headerBGColor.foregroundColor();
 				
 		Color pureColor					= _headerBGColor.pureColor();
 		// appHeaderMenuBackgroundColor	= pureColor.darker(25);
 		// appHeaderMenuFontColor		= appHeaderMenuBackgroundColor.foregroundColor();
 		
-		appHeaderMenuBackgroundColor		= _headerBGColor;
+		appHeaderMenuBackgroundColor	= _headerBGColor;
 		appHeaderMenuFontColor			= _headerBGColor.foregroundColor();		
 		
 		appHeaderHoverBackgroundColor 	= appHeaderMenuBackgroundColor.lighter(45);
@@ -93,21 +93,73 @@ public final class AmexioAppColors {
 	public String printSCSS() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("/** App Color Variables ------------------------ */").append(NL);
-		sb.append("$appBackground :").append(appBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$appBackgroundImage : none;").append(NL);
+		sb.append("$appBackground : ").append("var(--appBackground);").append(NL);
+		sb.append("$appBackgroundImage : ").append("var(--appBackgroundImage);").append(NL);
 
-		sb.append("$appForegroundColor :").append(appForegroundColor.hexStr()).append(";").append(NL); 
+		sb.append("$appForegroundColor : ").append("var(--appForegroundColor);").append(NL); 
 		
-		sb.append("$appHeaderBGColor :").append(appHeaderBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$appHeaderFontColor :").append(appHeaderForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("$appHeaderBGColor : ").append("var(--appHeaderBGColor);").append(NL);
+		sb.append("$appHeaderFontColor : ").append("var(--appHeaderFontColor);").append(NL);
 
-		sb.append("$appHeaderMenuBGColor :").append(appHeaderMenuBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$appHeaderMenuFontColor :").append(appHeaderMenuFontColor.hexStr()).append(";").append(NL);
+		sb.append("$appHeaderMenuBGColor : ").append("var(--appHeaderMenuBGColor);").append(NL);
+		sb.append("$appHeaderMenuFontColor : ").append("var(--appHeaderMenuFontColor);").append(NL);
 
 		
-		sb.append("$appHeaderHoverBGColor :").append(appHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
-		sb.append("$appHeaderHoverFontColor :").append(appHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
+		sb.append("$appHeaderHoverBGColor : ").append("var(--appHeaderHoverBGColor);").append(NL);
+		sb.append("$appHeaderHoverFontColor : ").append("var(--appHeaderHoverFontColor);").append(NL);
 		sb.append(NL);
+		return sb.toString();
+	}
+
+	/**
+	 * Prints the CSS3 Variables for App Colors
+	 * 
+	 * @return
+	 */
+	public String printCSS() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("/** App Color CSS Variables ------------------------ */").append(NL);
+		sb.append("--appBackground :").append(appBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--appBackgroundImage : none;").append(NL);
+
+		sb.append("--appForegroundColor :").append(appForegroundColor.hexStr()).append(";").append(NL); 
+		
+		sb.append("--appHeaderBGColor :").append(appHeaderBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--appHeaderFontColor :").append(appHeaderForegroundColor.hexStr()).append(";").append(NL);
+
+		sb.append("--appHeaderMenuBGColor :").append(appHeaderMenuBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--appHeaderMenuFontColor :").append(appHeaderMenuFontColor.hexStr()).append(";").append(NL);
+
+		
+		sb.append("--appHeaderHoverBGColor :").append(appHeaderHoverBackgroundColor.hexStr()).append(";").append(NL);
+		sb.append("--appHeaderHoverFontColor :").append(appHeaderHoverForegroundColor.hexStr()).append(";").append(NL);
+		sb.append(NL);
+		return sb.toString();
+	}
+	
+	/**
+	 * Prints the CSS3 Vars as a JSON for App Vars
+	 * 
+	 * @return
+	 */
+	public String printCSSJSON() {
+		StringBuilder sb = new StringBuilder();
+		// sb.append("/** App Color CSS Variables ------------------------ */").append(NL);
+		sb.append("{ \"key\": \"--appBackground\", \"value\": \"").append(appBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--appBackgroundImage\", \"value\": \"none\"},").append(NL);
+
+		sb.append("{ \"key\": \"--appForegroundColor\", \"value\": \"").append(appForegroundColor.hexStr()).append("\"},").append(NL); 
+		
+		sb.append("{ \"key\": \"--appHeaderBGColor\", \"value\": \"").append(appHeaderBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--appHeaderFontColor\", \"value\": \"").append(appHeaderForegroundColor.hexStr()).append("\"},").append(NL);
+
+		sb.append("{ \"key\": \"--appHeaderMenuBGColor\", \"value\": \"").append(appHeaderMenuBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--appHeaderMenuFontColor\", \"value\": \"").append(appHeaderMenuFontColor.hexStr()).append("\"},").append(NL);
+
+		
+		sb.append("{ \"key\": \"--appHeaderHoverBGColor\", \"value\": \"").append(appHeaderHoverBackgroundColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--appHeaderHoverFontColor\", \"value\": \"").append(appHeaderHoverForegroundColor.hexStr()).append("\"}").append(NL);
+
 		return sb.toString();
 	}
 }

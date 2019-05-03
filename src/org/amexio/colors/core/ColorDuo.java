@@ -28,6 +28,8 @@
 
 package org.amexio.colors.core;
 
+import org.amexio.colors.web.Colors;
+
 /**
  * Color Duo
  * <p>
@@ -36,10 +38,34 @@ package org.amexio.colors.core;
  * high contrast and can be very effective as accent colors when 
  * paired with a more neutral palette.
  * 
+ * Reference: https://htmlcolorcodes.com/color-picker/
+ * 
  * @author Araf Karsh Hamid
- * @version 1.0
- * @date February 23, 2018
+ * @version 2.0
+ * @date April 26, 2019
  */
-public class ColorDuo {
+public class ColorDuo extends AbstractColorMaker {
+	
+	private final Color oppoColor;
+	
+	/**
+	 * Creates the Opposite Color
+	 * 
+	 * @param color
+	 */
+	
+	public ColorDuo(Color _color) {
+		super(_color);
+		oppoColor = super.makeColor(180);
+	}
+	
+	/**
+	 * Returns the Opposite Color in the Color Wheel
+	 * 
+	 * @return Color
+	 */
+	public Color getOppositeColor() {
+		return oppoColor;
+	}
 
 }

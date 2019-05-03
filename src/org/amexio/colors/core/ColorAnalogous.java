@@ -35,11 +35,40 @@ package org.amexio.colors.core;
  * schemes, when paired with a complementary color for contrast, can 
  * offer great versatility.
  * 
+ * Reference: https://htmlcolorcodes.com/color-picker/
  * 
  * @author Araf Karsh Hamid
- * @version 1.0
- * @date
+ * @version 2.0
+ * @date April 26, 2019
  */
-public class ColorAnalogous {
-
+public class ColorAnalogous extends AbstractColorMaker { 
+	
+	private final Color colorLeft;
+	private final Color colorRight;
+	
+	public ColorAnalogous(Color _color) {
+		super(_color);
+		colorLeft = super.makeColor(-30);
+		colorRight = super.makeColor(30);
+	}
+	
+	/**
+	 * Returns the Adjacent Color (30 degree Left of the Primary Color) 
+	 * in the Color Wheel
+	 * 
+	 * @return Color
+	 */
+	public Color getColorLeft() {
+		return colorLeft;
+	}
+	
+	/**
+	 * Returns the Adjacent Color (30 degree Right of the Primary Color) 
+	 * in the Color Wheel
+	 * 
+	 * @return Color
+	 */
+	public Color getColorRight() {
+		return colorRight;
+	}
 }

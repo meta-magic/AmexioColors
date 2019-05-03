@@ -43,6 +43,7 @@ import org.amexio.colors.io.ThemesDataReader;
  * @author Araf Karsh Hamid
  * @version 1.0
  * @date March 1, 2018
+ * @updated on April 10, 2019
  */
 public class AmexioThemeFactory {
 
@@ -65,19 +66,28 @@ public class AmexioThemeFactory {
 	
 	/**
 	 * Create all the Themes based on the input from Theme Data File
+	 * 
+	 * @updated on April 10, 2019
 	 * @return
 	 */
 	public boolean createThemes() {
 		if(themesInputReader.processFile()) {
 			ArrayList<ThemeConfig> themes = themesInputReader.getThemes();
 			selectorData = new ThemeSelectorData(themes);
+			// Loop thru the Theme Config
 			for(ThemeConfig theme : themes) {
+				// Write Theme By Theme
 				themeBuilder = new AmexioThemeBuilder(theme);
 				themeWriter.generateFile(theme.getThemeBootFile(), 
 						AmexioThemeBoot.getThemeBootData(theme.getThemeInitFile()));
 				themeWriter.generateFile(theme.getThemeInitFile(), 
-						themeBuilder.printSCSS());
+						// Updated: changed the method call from printSCSS()
+						// to printAllData() to have both CSS and SCSS info.
+						themeBuilder.printAllData());	
+				// Print CSS3 Variables as JSON File
+				themeWriter.generateFile(theme.getThemeJSONFile(), themeBuilder.printJSONData());	
 			}
+			// Write All themes  MetaData into a file.
 			themeWriter.generateFile("material.json", selectorData.buildJSON());
 			themeWriter.generateFile("themes.json", selectorData.buildAPIJSON());
 			themeWriter.generateFile("amexioColors.scss", AmexioColors.printCSS());
@@ -100,7 +110,7 @@ public class AmexioThemeFactory {
 	public static void main(String[] args) {
 		
 		AmexioThemeFactory factory = new AmexioThemeFactory("Themes-Data.txt",
-										"/Users/arafkarsh/AmexioColors/mda-new-7/");
+										"/Users/arafkarsh/AmexioColors/2019/mda-12/");
 		if(factory.createThemes()) {
 			System.out.println("Theme Generation Process Completed...");
 		} else {

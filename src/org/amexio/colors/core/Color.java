@@ -503,7 +503,7 @@ public final class Color {
 	 * @return
 	 */
 	public String hexStr() {
-		return "#" + hex;
+		return "#" + hex.trim();
 	}
 	
 	/**
@@ -563,6 +563,72 @@ public final class Color {
 	// -----------------------------------------------------------------------
 	// Color Manipulations
 	// -----------------------------------------------------------------------
+	
+	/**
+	 * Returns shades and tones of the Pure Color.
+	 * First 3 colors will be the Darker shades of the Pure Color
+	 * Fourth Color will be the Pure Color
+	 * Last 3 Colors will be the lighter shades of the Pure Color
+	 * 
+	 * @return Color[]
+	 */
+	public Color[] getShades() {
+		Color c = pureColor();
+		Color[] shades = new Color[7];
+		shades[0] = c.darker(60);
+		shades[1] = c.darker(40);
+		shades[2] = c.darker(20);
+		shades[3] = c;
+		shades[4] = c.lighter(20);
+		shades[5] = c.lighter(40);
+		shades[6] = c.lighter(60);
+		return shades;
+	}
+	
+	/**
+	 * Returns the Linear Gradient CSS3 Function for the Current Color
+	 * 
+	 * @return
+	 */
+	public String getLinearGradient() {
+		Color c = pureColor();
+		StringBuffer sb = new StringBuffer();
+		sb.append("linear-gradient(to right, ");
+		sb.append(c.darker(30).hexStr()).append(", ");
+		sb.append(c.hexStr()).append(", ");
+		sb.append(c.lighter(35).hexStr());
+		sb.append(")");
+		return sb.toString();
+	}
+
+	/**
+	 * Returns the Radial Gradient CSS3 Function for the Current Color
+	 * 
+	 * @return
+	 */
+	public String getRadialGradient() {
+		Color c = pureColor();
+		StringBuffer sb = new StringBuffer();
+		sb.append("radial-gradient(");
+		sb.append(c.darker(30).hexStr()).append(", ");
+		sb.append(c.hexStr()).append(", ");
+		sb.append(c.lighter(35).hexStr());
+		sb.append(")");
+		return sb.toString();
+	}
+	
+	/**
+	 * Returns the CSS3 HSLA function for the Current Color
+	 * 
+	 * @return
+	 */
+	public String hsla() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("hsla(");
+		sb.append(this.hue).append(",").append(this.sat).append("%,").append(light).append("%,").append(alpha);
+		sb.append(")");
+		return sb.toString();
+	}
 	
 	/**
 	 * Returns the Pure Color for the Current Color <p>

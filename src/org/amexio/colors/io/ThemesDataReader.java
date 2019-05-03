@@ -65,6 +65,8 @@ public final class ThemesDataReader {
 	private File dataFile;
 	private boolean materialDesign = true;
 	private double version = 3.0;
+	private int colorAlgo = 0;
+	private String releaseDate;
 	
 	/**
 	 * Set the Input Data File Name
@@ -73,10 +75,11 @@ public final class ThemesDataReader {
 	 */
 	public ThemesDataReader(String _dataFile, String _destination) {
 		destinationPath = (_destination != null) ? _destination : "";
-		dataFileName = (_dataFile != null) ? _dataFile : "NO-DATA";
-		dataFile		 = new File(destinationPath + dataFileName);
-		fileStatus	 = dataFile.canRead();
-		themes		 = new ArrayList<ThemeConfig>(50);
+		dataFileName 	= (_dataFile != null) ? _dataFile : "NO-DATA";
+		dataFile		= new File(destinationPath + dataFileName);
+		fileStatus	 	= dataFile.canRead();
+		themes		 	= new ArrayList<ThemeConfig>(50);
+		releaseDate 	= "";
 	}
 	
 	/**
@@ -136,31 +139,45 @@ public final class ThemesDataReader {
 				if(fields != null) {
 					switch(fields.length) {
 					case 2:
-						return new ThemeConfig(fields[0], fields[1])
+						return new ThemeConfig(colorAlgo, fields[0], fields[1])
 								.setVersion(version)
-								.setDesignType(materialDesign);
+								.setDesignType(materialDesign)
+								.setReleaseDate(releaseDate);
 					case 3:
-						return new ThemeConfig(fields[0], fields[1], fields[2])
+						return new ThemeConfig(colorAlgo, fields[0], fields[1], fields[2])
 								.setVersion(version)
-								.setDesignType(materialDesign);
+								.setDesignType(materialDesign)
+								.setReleaseDate(releaseDate);
 					case 4:
-						return new ThemeConfig(fields[0], fields[1], 
+						return new ThemeConfig(colorAlgo, fields[0], fields[1], 
 								fields[2], fields[3], null)
 								.setVersion(version)
-								.setDesignType(materialDesign);
+								.setDesignType(materialDesign)
+								.setReleaseDate(releaseDate);
 					case 5:
-						return new ThemeConfig(fields[0], fields[1], 
+						return new ThemeConfig(colorAlgo, fields[0], fields[1], 
 								fields[2], fields[3], fields[4])
 								.setVersion(version)
-								.setDesignType(materialDesign);
+								.setDesignType(materialDesign)
+								.setReleaseDate(releaseDate);
 					}
 				}
 			} else if(_row.startsWith("// Design-Type")) {
 				materialDesign = getDesignType(_row.split(":"));
 			} else if(_row.startsWith("// Theme-Version")) {
 				version = getVersion(_row.split(":"));
+			} else if(_row.startsWith("// Color-Algo")) {
+				colorAlgo = getColorAlgo(_row.split(":"));
+			} else if(_row.startsWith("// Date")) {
+				try {
+					String[] data = _row.split(":");
+					releaseDate= data[1].trim();
+				} catch(Exception e) {}
 			}
 		}
+		// Returns NULL when it process the headers for a Theme
+		// and returns the ThemeConfig (in Switch Statement) when 
+		// the Theme config is fully set.
 		return null;
 	}
 	
@@ -191,6 +208,22 @@ public final class ThemesDataReader {
 			} catch (Exception ignored) {}
 		}
 		return 3.2;
+	}
+	
+	/**
+	 * Returns the Color Algo
+	 * @param _data
+	 * @return
+	 */
+	
+	private int getColorAlgo(String[] _data) {
+		if(_data != null && _data.length >1) {
+			System.out.print("Color Algo : "+_data[1]);
+			try {
+				return Integer.parseInt(_data[1].trim());
+			} catch (Exception ignored) {}
+		}
+		return 0;
 	}
 	
 	/**

@@ -36,10 +36,41 @@ package org.amexio.colors.core;
  * While analogous schemes typically use colors 30 degrees apart, neutral 
  * harmonies use colors 15 degrees apart.
  * 
+ * Reference: https://htmlcolorcodes.com/color-picker/
+ * 
  * @author Araf Karsh Hamid
- * @version 1.0
- * @date February 23, 2018
+ * @version 2.0
+ * @date April 26, 2019
  */
-public class ColorNeutral {
+public class ColorNeutral extends AbstractColorMaker {
+	
+	private final Color colorLeft;
+	private final Color colorRight;
+	
+	public ColorNeutral(Color _color) {
+		super(_color);
+		colorLeft = super.makeColor(-15);
+		colorRight = super.makeColor(15);
+	}
+	
+	/**
+	 * Returns the Adjacent Color (15 degree Left of the Primary Color) 
+	 * in the Color Wheel
+	 * 
+	 * @return Color
+	 */
+	public Color getColorLeft() {
+		return colorLeft;
+	}
+	
+	/**
+	 * Returns the Adjacent Color (15 degree Right of the Primary Color) 
+	 * in the Color Wheel
+	 * 
+	 * @return Color
+	 */
+	public Color getColorRight() {
+		return colorRight;
+	}
 
 }

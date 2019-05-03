@@ -35,12 +35,44 @@ package org.amexio.colors.core;
  * starting point for creating color palettes; fine tune them using color 
  * shades, tints and tones.
  *  
+ *  Reference: https://htmlcolorcodes.com/color-picker/
  * 
  * @author Araf Karsh Hamid
- * @version 1.0
- * @date February 23, 2018
+ * @version 2.0
+ * @date April 26, 2019
  */
 
-public class ColorTetradic {
+public class ColorTetradic  extends AbstractColorMaker {
+	
+	private final ColorDuo colorDuoLeft;
+	private final ColorDuo colorDuoRight;
+
+	
+	
+	public ColorTetradic(Color _color) {
+		super(_color);
+		colorDuoLeft = new ColorDuo(_color);
+		Color rightColor = super.makeColor(60);
+		colorDuoRight = new ColorDuo(rightColor);
+	}
+	
+	/**
+	 * Returns the Primary ColorDuo Colors 
+	 * 
+	 * @return ColorDuo
+	 */
+	public ColorDuo getColorDuoLeft() {
+		return colorDuoLeft;
+	}
+	
+	/**
+	 * Returns the Adjacent Color (60 degree Right of the Primary Color) 
+	 * in the Color Wheel
+	 * 
+	 * @return ColorDuo
+	 */
+	public ColorDuo getColorDuoRight() {
+		return colorDuoRight;
+	}
 
 }

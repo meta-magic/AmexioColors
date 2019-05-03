@@ -28,6 +28,8 @@
 package org.amexio.colors.themes;
 
 import org.amexio.colors.core.Color;
+import org.amexio.colors.core.ColorAnalogousSix;
+import org.amexio.colors.core.ColorCombinationFactory;
 import org.amexio.colors.web.Colors;
 
 /**
@@ -280,18 +282,27 @@ public class AmexioThemeColors {
 	}
 	
 	/**
-	 * Define Amexio Theme by Four Colors.
+	 * Create Themes based ColorCombinationFactory
+	 * 
+	 * @param _ccf
+	 */
+	public AmexioThemeColors(ColorCombinationFactory _ccf) {
+		this(_ccf.getThemeColor1(), _ccf.getThemeColor2(), _ccf.getThemeColor3(),
+			_ccf.getThemeColor4(), _ccf.getThemeColor5(), _ccf.getThemeColor6(), null);
+	}
+	/**
+	 * Define Amexio Theme by Six Colors.
 	 * Rest of the Colors will be auto determined by the Theme Builder
 	 * based on Best Color Patterns alogrithms.
 	 * 
-	 * Color 1 						= Theme Color 1
-	 * Color 2 						= Theme Color 2
-	 * Color 3 						= Theme Color 3
-	 * Color 4 						= Theme Color 4
-	 * App Background Color 			= Color 5
-	 * Component Background Color 	= Color 6
+	 * Color 1 	= Theme Color 1
+	 * Color 2 	= Theme Color 2
+	 * Color 3 	= Theme Color 3
+	 * Color 4 	= Theme Color 4
+	 * Color 5	= Color 5
+	 * Color 6 	= Color 6
 	 * 
-	 * Font Family					= Font Family
+	 * Font Family Font Family
 	 *  
 	 * @param Color _color1
 	 * @param Color _color2
@@ -303,7 +314,7 @@ public class AmexioThemeColors {
 			Color _color4, Color _color5, Color _color6, String _fontFamily) {
 		
 		theme1stColor 	= (_color1 != null) ? _color1 : Colors.BROWN.MAROON;
-		theme2ndColor 	= (_color2 != null) ? _color2 : Colors.RED.FIREBRICK;
+		theme2ndColor 	= (_color2 != null) ? _color2 : Colors.RED.FIREBRICK;;
 
 		theme3rdColor 	= (_color3 != null) ? _color3 : Colors.ORANGE.CORAL;
 		theme4thColor 	= (_color4 != null) ? _color4 : Colors.GREEN.MEDIUMSPRINGGREEN;
@@ -324,31 +335,194 @@ public class AmexioThemeColors {
 		StringBuilder sb = new StringBuilder();
 		sb.append(NL);
 		sb.append("/** Theme Color Variables ------------------------------- */").append(NL);
-		sb.append("$themePrimaryColor : ").append(theme1stColor.hexStr()).append(";").append(NL);
-		sb.append("$themeSecondaryColor : ").append(theme2ndColor.hexStr()).append(";").append(NL); 
-		sb.append("$theme3rdColor : ").append(theme3rdColor.hexStr()).append(";").append(NL);
-		sb.append("$theme4thColor : ").append(theme4thColor.hexStr()).append(";").append(NL);
-
-		// App Background and Component Background
-		sb.append("$theme5thColor : ").append(theme5thColor.hexStr()).append(";").append(NL);
-		sb.append("$theme6thColor : ").append(theme6thColor.hexStr()).append(";").append(NL);
+		sb.append("$themePrimaryColor : ").append("var(--themePrimaryColor);").append(NL);
+		sb.append("$themeSecondaryColor : ").append("var(--themeSecondaryColor);").append(NL); 
+		sb.append("$theme3rdColor : ").append("var(--theme3rdColor);").append(NL);
+		sb.append("$theme4thColor : ").append("var(--theme4thColor);").append(NL);
+		sb.append("$theme5thColor : ").append("var(--theme5thColor);").append(NL);
+		sb.append("$theme6thColor : ").append("var(--theme6thColor);").append(NL);
+		sb.append(NL);
 		
-		sb.append("$themeFontColor : ").append(themeFontColor.hexStr()).append(";").append(NL);
-		sb.append("$themeFontFamily : ").append(themeFontFamily).append(";").append(NL);
+		// Primary Color Shades
+		sb.append("/** Primary Color shades -------------------------- */").append(NL);
+		Color[] shades = theme1stColor.getShades();
+		for(int x=0; x<shades.length; x++ ) {
+			sb.append("$themePrimaryColorShade").append(x).append(" : ").append("var(--themePrimaryColorShade").append(x).append(");").append(NL);
+		}
+		sb.append(NL);
+		sb.append("/** Theme Color Gradients -------------------------- */").append(NL);
+		sb.append("$themePrimaryColorGradient : ").append("var(--themePrimaryColorGradient);").append(NL);
+		sb.append("$themeSecondaryColorGradient : ").append("var(--themeSecondaryColorGradient);").append(NL); 
+		sb.append("$theme3rdColorGradient : ").append("var(--theme3rdColorGradient);").append(NL);
+		sb.append("$theme4thColorGradient : ").append("var(--theme4thColorGradient);").append(NL);
+		sb.append("$theme5thColorGradient : ").append("var(--theme5thColorGradient);").append(NL);
+		sb.append("$theme6thColorGradient : ").append("var(--theme6thColorGradient);").append(NL);
+		sb.append(NL);
+		
+		sb.append("/** Theme Font Family -------------------------- */").append(NL);
+		sb.append("$themeFontColor : ").append("var(--themeFontColor);").append(NL);
+		sb.append("$themeFontFamily : ").append("var(--themeFontFamily);").append(NL);
+		sb.append(NL);
+		sb.append("$themePrimaryFontColor : ").append("var(--themePrimaryFontColor);").append(NL);
+		sb.append("$themeSecondaryFontColor : ").append("var(--themeSecondaryFontColor);").append(NL); 
+		sb.append("$theme3rdFontColor : ").append("var(--theme3rdFontColor);").append(NL);
+		sb.append("$theme4thFontColor : ").append("var(--theme4thFontColor);").append(NL);
+		sb.append("$theme5thFontColor : ").append("var(--theme5thFontColor);").append(NL);
+		sb.append("$theme6thFontColor : ").append("var(--theme6thFontColor);").append(NL);
+		
 		sb.append(NL);
 		sb.append("/** Theme Additional Std Colors : Light and Dark shades --- */").append(NL);
-		sb.append("$amexioColorRedLight : ").append(amexioColorRedLight.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorRedDark : ").append(amexioColorRedDark.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorGreenLight : ").append(amexioColorGreenLight.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorGreenDark : ").append(amexioColorGreenDark.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorPurpleLight : ").append(amexioColorPurpleLight.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorPurpleDark : ").append(amexioColorPurpleDark.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorBlueLight : ").append(amexioColorBlueLight.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorBlueDark : ").append(amexioColorBlueDark.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorBrownLight : ").append(amexioColorBrownLight.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorBrownDark : ").append(amexioColorBrownDark.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorYellowLight : ").append(amexioColorYellowLight.hexStr()).append(";").append(NL);
-		sb.append("$amexioColorYellowDark : ").append(amexioColorYellowDark.hexStr()).append(";").append(NL);
+		
+		sb.append("$amexioColorRedLight : ").append("var(--amexioColorRedLight);").append(NL);
+		sb.append("$amexioColorRedDark : ").append("var(--amexioColorRedDark);").append(NL);
+		sb.append("$amexioColorGreenLight : ").append("var(--amexioColorGreenLight);").append(NL);
+		sb.append("$amexioColorGreenDark : ").append("var(--amexioColorGreenDark);").append(NL);
+		sb.append("$amexioColorPurpleLight : ").append("var(--amexioColorPurpleLight);").append(NL);
+		sb.append("$amexioColorPurpleDark : ").append("var(--amexioColorPurpleDark);").append(NL);
+		sb.append("$amexioColorBlueLight : ").append("var(--amexioColorBlueLight);").append(NL);
+		sb.append("$amexioColorBlueDark : ").append("var(--amexioColorBlueDark);").append(NL);
+		sb.append("$amexioColorBrownLight : ").append("var(--amexioColorBrownLight);").append(NL);
+		sb.append("$amexioColorBrownDark : ").append("var(--amexioColorBrownDark);").append(NL);
+		sb.append("$amexioColorYellowLight : ").append("var(--amexioColorYellowLight);").append(NL);
+		sb.append("$amexioColorYellowDark : ").append("var(--amexioColorYellowDark);").append(NL);
+		sb.append(NL);
+		return sb.toString();
+	}
+	
+	/**
+	 * Prints the CSS for App Vars
+	 * 
+	 * @return String
+	 */
+	public String printCSS() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(NL);
+		sb.append("/** Theme Color in CSS Variables ------------------------------- */").append(NL);
+		sb.append("--themePrimaryColor : ").append(theme1stColor.hexStr()).append(";").append(NL);
+		sb.append("--themeSecondaryColor : ").append(theme2ndColor.hexStr()).append(";").append(NL); 
+		sb.append("--theme3rdColor : ").append(theme3rdColor.hexStr()).append(";").append(NL);
+		sb.append("--theme4thColor : ").append(theme4thColor.hexStr()).append(";").append(NL);
+		sb.append("--theme5thColor : ").append(theme5thColor.hexStr()).append(";").append(NL);
+		sb.append("--theme6thColor : ").append(theme6thColor.hexStr()).append(";").append(NL);
+		sb.append(NL);
+		
+		sb.append("--themePrimaryColorHSLA : ").append(theme1stColor.hsla()).append(";").append(NL);
+		sb.append("--themeSecondaryColorHSLA : ").append(theme2ndColor.hsla()).append(";").append(NL); 
+		sb.append("--theme3rdColorHSLA : ").append(theme3rdColor.hsla()).append(";").append(NL);
+		sb.append("--theme4thColorHSLA : ").append(theme4thColor.hsla()).append(";").append(NL);
+		sb.append("--theme5thColorHSLA : ").append(theme5thColor.hsla()).append(";").append(NL);
+		sb.append("--theme6thColorHSLA : ").append(theme6thColor.hsla()).append(";").append(NL);
+		sb.append(NL);
+		// Primary Color Shades
+		sb.append("/** Primary Color shades -------------------------- */").append(NL);
+		Color[] shades = theme1stColor.getShades();
+		for(int x=0; x<shades.length; x++ ) {
+			Color shadeColor = shades[x];
+			sb.append("--themePrimaryColorShade").append(x).append(" : ").append(shadeColor.hexStr()).append(";").append(NL);
+		}
+		sb.append(NL);
+		sb.append("/** Theme Color Gradients -------------------------- */").append(NL);
+		sb.append("--themePrimaryColorGradient : ").append(theme1stColor.getLinearGradient()).append(";").append(NL);
+		sb.append("--themeSecondaryColorGradient : ").append(theme2ndColor.getLinearGradient()).append(";").append(NL); 
+		sb.append("--theme3rdColorGradient : ").append(theme3rdColor.getLinearGradient()).append(";").append(NL);
+		sb.append("--theme4thColorGradient : ").append(theme4thColor.getLinearGradient()).append(";").append(NL);
+		sb.append("--theme5thColorGradient : ").append(theme5thColor.getLinearGradient()).append(";").append(NL);
+		sb.append("--theme6thColorGradient : ").append(theme6thColor.getLinearGradient()).append(";").append(NL);
+		sb.append(NL);
+		sb.append("/** Theme Font Family -------------------------- */").append(NL);
+		sb.append("--themeFontColor : ").append(themeFontColor.hexStr()).append(";").append(NL);
+		sb.append("--themeFontFamily : ").append(themeFontFamily).append(";").append(NL);
+		sb.append(NL);
+		sb.append("--themePrimaryFontColor : ").append(theme1stColor.foregroundColor().hexStr()).append(";").append(NL);
+		sb.append("--themeSecondaryFontColor : ").append(theme2ndColor.foregroundColor().hexStr()).append(";").append(NL); 
+		sb.append("--theme3rdFontColor : ").append(theme3rdColor.foregroundColor().hexStr()).append(";").append(NL);
+		sb.append("--theme4thFontColor : ").append(theme4thColor.foregroundColor().hexStr()).append(";").append(NL);
+		sb.append("--theme5thzFontColor : ").append(theme5thColor.foregroundColor().hexStr()).append(";").append(NL);
+		sb.append("--theme6thFontColor : ").append(theme6thColor.foregroundColor().hexStr()).append(";").append(NL);
+		
+		sb.append(NL);
+		sb.append("/** Theme Additional Std CSS Colors : Light and Dark shades --- */").append(NL);
+		sb.append("--amexioColorRedLight : ").append(amexioColorRedLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorRedDark : ").append(amexioColorRedDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorGreenLight : ").append(amexioColorGreenLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorGreenDark : ").append(amexioColorGreenDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorPurpleLight : ").append(amexioColorPurpleLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorPurpleDark : ").append(amexioColorPurpleDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBlueLight : ").append(amexioColorBlueLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBlueDark : ").append(amexioColorBlueDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBrownLight : ").append(amexioColorBrownLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBrownDark : ").append(amexioColorBrownDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorYellowLight : ").append(amexioColorYellowLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorYellowDark : ").append(amexioColorYellowDark.hexStr()).append(";").append(NL);
+		sb.append(NL);
+		return sb.toString();
+	}
+	
+	/**
+	 * Prints the CSS JSON
+	 * @return
+	 */
+	public String printCSSJSON() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(NL);
+		sb.append("{ \"key\": \"--appTransparency\", \"value\": \"rgba(0,0,0,0.87)\"},").append(NL);
+		// sb.append("/** Theme Color in CSS Variables ------------------------------- */").append(NL);
+		sb.append("{ \"key\": \"--themePrimaryColor\", \"value\": \"").append(theme1stColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--themeSecondaryColor\", \"value\": \"").append(theme2ndColor.hexStr()).append("\"},").append(NL); 
+		sb.append("{ \"key\": \"--theme3rdColor\", \"value\": \"").append(theme3rdColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme4thColor\", \"value\": \"").append(theme4thColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme5thColor\", \"value\": \"").append(theme5thColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme6thColor\", \"value\": \"").append(theme6thColor.hexStr()).append("\"},").append(NL);
+		sb.append(NL);
+		
+		sb.append("{ \"key\": \"--themePrimaryColorHSLA\", \"value\": \"").append(theme1stColor.hsla()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--themeSecondaryColorHSLA\", \"value\": \"").append(theme2ndColor.hsla()).append("\"},").append(NL); 
+		sb.append("{ \"key\": \"--theme3rdColorHSLA\", \"value\": \"").append(theme3rdColor.hsla()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme4thColorHSLA\", \"value\": \"").append(theme4thColor.hsla()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme5thColorHSLA\", \"value\": \"").append(theme5thColor.hsla()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme6thColorHSLA\", \"value\": \"").append(theme6thColor.hsla()).append("\"},").append(NL);
+		sb.append(NL);
+		// Primary Color Shades
+		// sb.append("/** Primary Color shades -------------------------- */").append(NL);
+		Color[] shades = theme1stColor.getShades();
+		for(int x=0; x<shades.length; x++ ) {
+			Color shadeColor = shades[x];
+			sb.append("{ \"key\": \"--themePrimaryColorShade").append(x).append("\", \"value\": \"").append(shadeColor.hexStr()).append("\"},").append(NL);
+		}
+		sb.append(NL);
+		// sb.append("/** Theme Color Gradients -------------------------- */").append(NL);
+		sb.append("{ \"key\": \"--themePrimaryColorGradient\", \"value\": \"").append(theme1stColor.getLinearGradient()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--themeSecondaryColorGradient\", \"value\": \"").append(theme2ndColor.getLinearGradient()).append("\"},").append(NL); 
+		sb.append("{ \"key\": \"--theme3rdColorGradient\", \"value\": \"").append(theme3rdColor.getLinearGradient()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme4thColorGradient\", \"value\": \"").append(theme4thColor.getLinearGradient()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme5thColorGradient\", \"value\": \"").append(theme5thColor.getLinearGradient()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme6thColorGradient\", \"value\": \"").append(theme6thColor.getLinearGradient()).append("\"},").append(NL);
+		sb.append(NL);
+		// sb.append("/** Theme Font Family -------------------------- */").append(NL);
+		sb.append("{ \"key\": \"--themeFontColor\", \"value\": \"").append(themeFontColor.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--themeFontFamily \", \"value\": \"").append(themeFontFamily).append("\"},").append(NL);
+		sb.append(NL);
+		sb.append("{ \"key\": \"--themePrimaryFontColor\", \"value\": \"").append(theme1stColor.foregroundColor().hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--themeSecondaryFontColor\", \"value\": \"").append(theme2ndColor.foregroundColor().hexStr()).append("\"},").append(NL); 
+		sb.append("{ \"key\": \"--theme3rdFontColor\", \"value\": \"").append(theme3rdColor.foregroundColor().hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme4thFontColor\", \"value\": \"").append(theme4thColor.foregroundColor().hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme5thzFontColor\", \"value\": \"").append(theme5thColor.foregroundColor().hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--theme6thFontColor\", \"value\": \"").append(theme6thColor.foregroundColor().hexStr()).append("\"},").append(NL);
+		
+		sb.append(NL);
+		// sb.append("/** Theme Additional Std CSS Colors : Light and Dark shades --- */").append(NL);
+		sb.append("{ \"key\": \"--amexioColorRedLight\", \"value\": \"").append(amexioColorRedLight.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorRedDark\", \"value\": \"").append(amexioColorRedDark.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorGreenLight\", \"value\": \"").append(amexioColorGreenLight.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorGreenDark\", \"value\": \"").append(amexioColorGreenDark.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorPurpleLight\", \"value\": \"").append(amexioColorPurpleLight.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorPurpleDark\", \"value\": \"").append(amexioColorPurpleDark.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorBlueLight\", \"value\": \"").append(amexioColorBlueLight.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorBlueDark\", \"value\": \"").append(amexioColorBlueDark.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorBrownLight\", \"value\": \"").append(amexioColorBrownLight.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorBrownDark\", \"value\": \"").append(amexioColorBrownDark.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorYellowLight\", \"value\": \"").append(amexioColorYellowLight.hexStr()).append("\"},").append(NL);
+		sb.append("{ \"key\": \"--amexioColorYellowDark\", \"value\": \"").append(amexioColorYellowDark.hexStr()).append("\"}").append(NL);
 		sb.append(NL);
 		return sb.toString();
 	}

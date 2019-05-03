@@ -51,7 +51,7 @@ public final class AmexioColors {
 	
 	// Random Colors to be used within a theme
 	public static final Color amexioColorRedLight	= Colors.ORANGE.CORAL;
-	public static final Color amexioColorRedDark		= Colors.RED.CRIMSON;
+	public static final Color amexioColorRedDark	= Colors.RED.CRIMSON;
 	public static final Color amexioColorGreenLight	= Colors.GREEN.LIME;
 	public static final Color amexioColorGreenDark	= Colors.GREEN.SEAGREEN;
 	public static final Color amexioColorPurpleLight = Colors.PURPLE.MAGENTA;
@@ -153,6 +153,57 @@ public final class AmexioColors {
 	}
 	
 	/**
+	 * Amexio Color Definitions in CSS
+	 * 
+	 * @return
+	 */
+	public static String printColorDefinitionsCSS() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(NL);
+		sb.append("/** Theme Additional Std Colors in CSS : Light and Dark shades --- */").append(NL);
+		sb.append("--amexioColorRedLight : ").append(amexioColorRedLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorRedDark : ").append(amexioColorRedDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorGreenLight : ").append(amexioColorGreenLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorGreenDark : ").append(amexioColorGreenDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorPurpleLight : ").append(amexioColorPurpleLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorPurpleDark : ").append(amexioColorPurpleDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBlueLight : ").append(amexioColorBlueLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBlueDark : ").append(amexioColorBlueDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBrownLight : ").append(amexioColorBrownLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBrownDark : ").append(amexioColorBrownDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorYellowLight : ").append(amexioColorYellowLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorYellowDark : ").append(amexioColorYellowDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorBlack : ").append(amexioColorBlack.hexStr()).append(";").append(NL);
+		sb.append("--amexioColorWhite : ").append(amexioColorWhite.hexStr()).append(";").append(NL);
+
+		sb.append(NL);
+		return sb.toString();
+	}
+	
+	/**
+	 * Amexio Color Font Definitions in CSS
+	 * @return
+	 */
+	public static String printFontDefinitionsCSS() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(NL);
+		sb.append("/** Theme Additional Std Font Colors in CSS : Light and Dark shades --- */").append(NL);
+		sb.append("--amexioFontForRedLight : ").append(amexioFontForRedLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForRedDark : ").append(amexioFontForRedDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForGreenLight : ").append(amexioFontForGreenLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForGreenDark : ").append(amexioFontForGreenDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForPurpleLight : ").append(amexioFontForPurpleLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForPurpleDark : ").append(amexioFontForPurpleDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForBlueLight : ").append(amexioFontForBlueLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForBlueDark : ").append(amexioFontForBlueDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForBrownLight : ").append(amexioFontForBrownLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForBrownDark : ").append(amexioFontForBrownDark.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForYellowLight : ").append(amexioFontForYellowLight.hexStr()).append(";").append(NL);
+		sb.append("--amexioFontForYellowDark : ").append(amexioFontForYellowDark.hexStr()).append(";").append(NL);
+		sb.append(NL);
+		return sb.toString();
+	}
+	/**
 	 * Returns the Color Class Definitions
 	 * @return
 	 */
@@ -172,6 +223,14 @@ public final class AmexioColors {
 	 * @return
 	 */
 	public static String printCSS() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(printColorDefinitionsCSS());
+		sb.append(printFontDefinitionsCSS());
+		sb.append(printColorCSSDefinitons());
+		return sb.toString();
+	}
+	
+	public static String printSCSS() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(printColorDefinitions());
 		sb.append(printFontDefinitions());

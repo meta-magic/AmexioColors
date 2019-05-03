@@ -95,6 +95,7 @@ public class ThemeSelectorData {
 			if(cellCount > 1 && cellCount <= themesPerRow) {
 				sb.append(",").append(NL);
 			}
+			// Print the JSON
 			sb.append(theme.toJSON());
 			if(cellCount == themesPerRow) {
 				sb.append(NL).append("]");

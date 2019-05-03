@@ -69,7 +69,7 @@ public final class AmexioThemeBoot {
 			+ "@import \"../def/amexio.forminputs.scss\";" + NL 
 			+ "@import \"../def/amexio.enterprise.scss\";" + NL 
 			+ "@import \"../def/amexio.data.scss\";" + NL 
-			+ "@import \"../def/amexio.nav.scss\";" + NL 
+			+ "@import \"../def/amexio.nav.scss\";" + NL + NL
 			
 			+"/** Initialze Panels and Layouts variables ------------ */" + NL 
 			+ "@import \"../def/amexio.panes.scss\";" + NL 
@@ -79,7 +79,10 @@ public final class AmexioThemeBoot {
 			+ "@import \"../def/amexio.animation.scss\";" + NL + NL
 			
 			+"/** Initialze Responsive Design variables ------------ */" + NL 
-			+ "@import \"../def/amexio.media.query.scss\";";
+			+ "@import \"../def/amexio.media.query.scss\";" + NL + NL
+	
+			+"/** Initialze Creative Components ------------ */" + NL
+			+"@import \"../def/amexio.creative.scss\";";
 	
 	/**
 	 * Get Complete Theme Boot instructions

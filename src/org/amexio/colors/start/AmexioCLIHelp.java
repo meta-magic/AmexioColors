@@ -38,7 +38,7 @@ public class AmexioCLIHelp {
 	
 	public static final String NL = System.getProperty("line.separator");
 
-	public static final String VERSION = "1.0.4";
+	public static final String VERSION = "2.0.0";
 	
 	public static final String HELP = "" + NL
 			+ "----------------------------------------------------------------------" + NL
@@ -65,7 +65,7 @@ public class AmexioCLIHelp {
 	
 	public static final String PRODUCT = "" 
 			+ "Amexio Colors v" + VERSION + NL
-			+ "Copyright (c) 2018, MetaMagic Global Inc, NJ, USA" + NL
+			+ "Copyright (c) 2018-19, MetaMagic Global Inc, NJ, USA" + NL
 			+ "----------------------------------------------------------------------" + NL
 			+ PRODUCT_LOGO
 			+ "Checkout more details in: https://www.amexio.tech/amexio-colors" + NL
@@ -73,9 +73,9 @@ public class AmexioCLIHelp {
 	
 	public static final String PARAM_EXAMPLE = ""
 			+ "themesInputFile : Sample Input File Contains following data" + NL 
-			+ "// Amexio Themes v4.0 - Jan 31, 2018" + NL 
+			+ "// Amexio Themes v5.0 - Jan 31, 2019" + NL 
 			+ "// Design-Type : Material Design" + NL 
-			+ "// Theme-Version : 4.0" + NL 
+			+ "// Theme-Version : 5.0" + NL 
 			+ "army-olive,#4B5320,#708238" + NL 
 			+ "ash-stone-black,#544C4A,#877F7D" + NL + NL
 			+ "----------------------------------------------------------------------" + NL

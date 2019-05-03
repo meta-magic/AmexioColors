@@ -36,11 +36,41 @@ package org.amexio.colors.core;
  * the color wheel. Like complementary colors, triadic schemes tend to be very 
  * bright with a high contrast and work best when one color dominates.
  * 
+ * Reference: https://htmlcolorcodes.com/color-picker/
  * 
  * @author Araf Karsh Hamid
  * @version 1.0
- * @date February 23, 2018
+ * @date April 26, 2019
  */
-public class ColorTriadic {
+public class ColorTriadic extends AbstractColorMaker {
+	
+	private final Color colorLeft;
+	private final Color colorRight;
+	
+	public ColorTriadic(Color _color) {
+		super(_color);
+		colorLeft = super.makeColor(-120);
+		colorRight = super.makeColor(120);
+	}
+	
+	/**
+	 * Returns the Adjacent Color (120 degree Left of the Primary Color) 
+	 * in the Color Wheel
+	 * 
+	 * @return Color
+	 */
+	public Color getColorLeft() {
+		return colorLeft;
+	}
+	
+	/**
+	 * Returns the Adjacent Color (120 degree Right of the Primary Color) 
+	 * in the Color Wheel
+	 * 
+	 * @return Color
+	 */
+	public Color getColorRight() {
+		return colorRight;
+	}
 
 }
